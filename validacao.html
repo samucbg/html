@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Aritmética</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0d0d15; /* Fundo escuro */
+            color: #eaeaea; /* Texto claro */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Preencher a altura da tela */
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        label {
+            margin-top: 15px;
+            display: block;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        input, select {
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background-color: #162447; /* Fundo dos inputs */
+            color: #eaeaea; /* Texto dos inputs */
+            text-align: center;
+            width: 200px; /* Largura fixa para inputs */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+        }
+
+        input::placeholder {
+            color: #a8a8b3; /* Cor do placeholder */
+        }
+
+        input:hover, select:hover {
+            background-color: #1f4068; /* Cor ao passar o mouse */
+            transform: scale(1.02); /* Efeito de zoom ao passar o mouse */
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border-radius: 5px;
+            border: none;
+            background-color: #00adb5; /* Cor do botão */
+            color: #ffffff; /* Texto do botão */
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+        }
+
+        button:hover {
+            background-color: #009c9b; /* Cor do botão ao passar o mouse */
+            transform: scale(1.05); /* Efeito de zoom no botão */
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 1.8em;
+        }
+
+        span {
+            font-weight: bold;
+            color: #00adb5; /* Cor do resultado */
+        }
+        
+        #resultado {
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Calculadora Aritmética</h1>
+    
+    <label for="num1">Digite o primeiro número:</label>
+    <input type="number" id="num1" placeholder="Número 1" required>
+
+    <label for="num2">Digite o segundo número:</label>
+    <input type="number" id="num2" placeholder="Número 2" required>
+
+    <label for="operacao">Escolha a operação:</label>
+    <select id="operacao">
+        <option value="">Selecione uma operação</option>
+        <option value="soma">Soma</option>
+        <option value="subtracao">Subtração</option>
+        <option value="multiplicacao">Multiplicação</option>
+        <option value="divisao">Divisão</option>
+    </select>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <h2>Resultado: <span id="resultado"></span></h2>
+
+    <script>
+        function calcular() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operacao = document.getElementById('operacao').value;
+
+            let resultado = '';
+
+            // Validação dos campos
+            if (isNaN(num1) || isNaN(num2)) {
+                resultado = 'Por favor, insira números válidos.';
+                document.getElementById('resultado').textContent = resultado;
+                return;
+            }
+            
+            // Realiza a operação escolhida
+            switch (operacao) {
+                case 'soma':
+                    resultado = num1 + num2;
+                    break;
+                case 'subtracao':
+                    resultado = num1 - num2;
+                    break;
+                case 'multiplicacao':
+                    resultado = num1 * num2;
+                    break;
+                case 'divisao':
+                    if (num2 === 0) {
+                        resultado = 'Não é possível dividir por zero.';
+                    } else {
+                        resultado = Math.round(num1 / num2); // Arredondando o resultado da divisão
+                    }
+                    break;
+                default:
+                    resultado = 'Por favor, selecione uma operação.';
+                    break;
+            }
+
+            // Verifica se o resultado é par ou ímpar
+            if (typeof resultado === 'number') {
+                const paridade = (resultado % 2 === 0) ? 'Par' : 'Ímpar';
+                resultado += ` (${paridade})`;
+            }
+
+            document.getElementById('resultado').textContent = resultado !== '' ? resultado : '';
+        }
+    </script>
+</body>
+</html>

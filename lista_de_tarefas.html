@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .task-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .task-input {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        li.completed {
+            text-decoration: line-through; /* Risca o texto da tarefa concluída */
+            color: gray; /* Muda a cor do texto para cinza */
+        }
+        li button {
+            background-color: #dc3545; /* Cor do botão de excluir */
+        }
+        li button:hover {
+            background-color: #c82333; /* Cor do botão de excluir ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="task-container">
+        <h1>Lista de Tarefas</h1>
+        <div class="task-input">
+            <input type="text" id="taskInput" placeholder="Digite uma tarefa...">
+            <button onclick="addTask()">Adicionar</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        // Função para adicionar uma tarefa
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskList = document.getElementById("taskList");
+            const taskText = taskInput.value.trim();
+
+            if (taskText === "") {
+                alert("Por favor, digite uma tarefa!");
+                return; // Não adiciona se o campo estiver vazio
+            }
+
+            // Cria o elemento da tarefa
+            const listItem = document.createElement("li");
+            
+            // Adiciona um evento de clique para marcar como concluída
+            listItem.onclick = function() {
+                listItem.classList.toggle("completed"); // Alterna a classe 'completed'
+                saveTasks(); // Atualiza o armazenamento após a modificação
+            };
+
+            listItem.textContent = taskText;
+
+            // Botão de excluir
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Excluir";
+            
+            deleteButton.onclick = function(event) {
+                event.stopPropagation(); // Impede que o clique no botão também marque a tarefa como concluída
+                taskList.removeChild(listItem); // Remove a tarefa da lista
+                saveTasks(); // Atualiza o armazenamento após a remoção
+            };
+
+            // Adiciona o botão ao item da lista
+            listItem.appendChild(deleteButton);
+
+            // Adiciona o item à lista
+            taskList.appendChild(listItem);
+
+            // Limpa o campo de entrada
+            taskInput.value = "";
+
+            saveTasks(); // Salva as tarefas no localStorage
+        }
+
+        // Função para salvar as tarefas no localStorage
+        function saveTasks() {
+          const taskList = document.getElementById("taskList");
+          const tasks = [];
+          for (let i = 0; i < taskList.children.length; i++) {
+              const item = taskList.children[i];
+              tasks.push({
+                  text: item.firstChild.textContent,
+                  completed: item.classList.contains("completed") // Salva o estado da tarefa (concluída ou não)
+              });
+          }
+          localStorage.setItem('tasks', JSON.stringify(tasks)); // Armazena as tarefas em formato JSON
+      }
+
+      // Função para carregar as tarefas do localStorage
+      function loadTasks() {
+          const tasks = JSON.parse(localStorage.getItem('tasks')) || []; // Recupera as tarefas ou cria um array vazio
+          tasks.forEach(task => {
+              const listItem = document.createElement("li");
+              listItem.textContent = task.text;
+
+              if (task.completed) { // Verifica se a tarefa está concluída e aplica a classe correspondente
+                  listItem.classList.add("completed");
+              }
+
+              const deleteButton = document.createElement("button");
+              deleteButton.textContent = "Excluir";
+              deleteButton.onclick = function(event) {
+                  event.stopPropagation(); // Impede que o clique no botão também marque a tarefa como concluída
+                  taskList.removeChild(listItem);
+                  saveTasks(); // Atualiza o armazenamento após a remoção
+              };
+
+              listItem.appendChild(deleteButton);
+              document.getElementById("taskList").appendChild(listItem);
+          });
+      }
+
+      // Carrega as tarefas ao iniciar a página
+      window.onload = loadTasks;
+
+    </script>
+</body>
+</html>

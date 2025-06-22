@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Moderno</title>
+    <style>
+        /* CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2575fc, #6a11cb); /* Gradiente entre azul e roxo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 48px;
+            background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Gradiente entre laranja e amarelo */
+            -webkit-background-clip: text; /* Para aplicar o gradiente ao texto */
+            -webkit-text-fill-color: transparent; /* Torna o preenchimento do texto transparente */
+            margin: 0; /* Remove margens padrão */
+        }
+
+        .contador {
+            font-size: 48px;
+            color: #555555;
+            margin: 20px 0;
+        }
+
+        button {
+            background: linear-gradient(90deg, #feb47b, #ff7e5f); /* Gradiente entre amarelo e laranja */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Adicionando transformação ao hover */
+            margin: 5px; /* Espaçamento entre os botões */
+        }
+
+        button:hover {
+            transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contador</h1>
+        <div class="contador" id="contador">0</div>
+        <button id="botao-contar">Iniciar Contagem</button>
+        <button id="botao-parar">Zerar Contagem</button>
+        <button id="botao-pausar">Pausar Contagem</button>
+    </div>
+
+    <script>
+        // JavaScript
+        let contador = 0; // Inicializa o contador em 0
+        let intervalo; // Variável para armazenar o intervalo
+
+        // Função para iniciar a contagem
+        function iniciarContagem() {
+            if (!intervalo) { // Verifica se já não está contando
+                intervalo = setInterval(() => {
+                    contador++; // Incrementa o contador
+                    document.getElementById("contador").textContent = contador; // Atualiza o contador na tela
+
+                    // Para a contagem ao atingir 20
+                    if (contador >= 20) {
+                        clearInterval(intervalo); // Para o intervalo
+                        intervalo = null; // Reseta a variável de intervalo
+                        console.log("Contagem finalizada!"); // Mensagem de finalização no console
+                    }
+                }, 1000); // Intervalo de 1 segundo (1000 milissegundos)
+            }
+        }
+
+        // Função para pausar a contagem
+        function pausarContagem() {
+            clearInterval(intervalo); // Para o intervalo
+            intervalo = null; // Reseta a variável de intervalo
+        }
+
+        // Função para parar a contagem e resetar o contador
+        function pararContagem() {
+            clearInterval(intervalo); // Para o intervalo
+            intervalo = null; // Reseta a variável de intervalo
+            contador = 0; // Reseta o contador
+            document.getElementById("contador").textContent = contador; // Atualiza a tela
+        }
+
+        // Adiciona eventos de clique aos botões
+        document.getElementById("botao-contar").addEventListener("click", iniciarContagem);
+        document.getElementById("botao-pausar").addEventListener("click", pausarContagem);
+        document.getElementById("botao-parar").addEventListener("click", pararContagem);
+    </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Básico</title>
+    <style>
+        /* Estilo geral */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .quiz-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz Básico</h1>
+        <div class="question" id="question"></div>
+        <div class="options" id="options"></div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // Array de perguntas
+        const questions = [
+            {
+                question: "Qual é a capital do Brasil?",
+                options: ["São Paulo", "Brasília", "Rio de Janeiro", "Salvador"],
+                answer: "Brasília"
+            },
+            {
+                question: "Qual é a maior planeta do sistema solar?",
+                options: ["Terra", "Marte", "Júpiter", "Saturno"],
+                answer: "Júpiter"
+            },
+            {
+                question: "Qual é o elemento químico com o símbolo O?",
+                options: ["Oxigênio", "Ouro", "Ósmio", "Oganessônio"],
+                answer: "Oxigênio"
+            },
+            {
+                question: "Quem escreveu 'Dom Casmurro'?",
+                options: ["Machado de Assis", "José de Alencar", "Clarice Lispector", "Jorge Amado"],
+                answer: "Machado de Assis"
+            },
+            {
+                question: "Qual é a língua oficial do Brasil?",
+                options: ["Espanhol", "Inglês", "Francês", "Português"],
+                answer: "Português"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        // Função para carregar a pergunta atual
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById("question").textContent = currentQuestion.question;
+
+            const optionsContainer = document.getElementById("options");
+            optionsContainer.innerHTML = ""; // Limpa opções anteriores
+
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option);
+                optionsContainer.appendChild(button);
+            });
+
+            document.getElementById("result").textContent = ""; // Limpa resultado anterior
+        }
+
+        // Função para verificar a resposta
+        function checkAnswer(selectedAnswer) {
+            const result = document.getElementById("result");
+            
+            if (selectedAnswer === questions[currentQuestionIndex].answer) {
+                result.textContent = "Parabéns! Você acertou!";
+                result.style.color = "green";
+                
+                // Avança para a próxima pergunta após um pequeno atraso
+                setTimeout(() => {
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
+                        loadQuestion();
+                    } else {
+                        result.textContent = "Fim do quiz! Você completou todas as perguntas.";
+                        document.getElementById("options").innerHTML = ""; // Limpa opções
+                    }
+                }, 1500);
+                
+            } else {
+                result.textContent = "Ops! Resposta errada. Tente novamente.";
+                result.style.color = "red";
+            }
+        }
+
+        // Carrega a primeira pergunta ao iniciar
+        loadQuestion();
+    </script>
+</body>
+</html>

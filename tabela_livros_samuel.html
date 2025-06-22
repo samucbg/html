@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela de Livros</title>
+    <style>
+        /* Estilos para a tabela */
+        .tabela {
+            width: 80%; /* Define a largura da tabela */
+            margin: 20px auto; /* Centraliza a tabela na página */
+            border-collapse: collapse; /* Colapsa as bordas */
+        }
+        th, td {
+            border: 2px solid #555; /* Define a largura e estilo do contorno */
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color:burlywood;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Tabela de Livros</h2>
+    <!-- Tabela centralizada -->
+    <table class="tabela" align="center">
+        <thead>
+            <tr>
+                <th>Quantidade</th>
+                <th>Título</th>
+                <th>Valor (R$)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>3</td>
+                <td>HTML and CSS: Design and Build Websites - Jon Duckett</td>
+                <td>120,00</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Learning Web Design: A Beginner's Guide to HTML, CSS, JavaScript, and Web Graphics - Jennifer Niederst Robbins</td>
+                <td>150,00</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>HTML5: Up and Running - Mark Pilgrim</td>
+                <td>100,00</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>HTML5 and CSS3 All-in-One For Dummies - Andy Harris</td>
+                <td>140,00</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>HTML5 Pocket Reference - Jennifer Niederst Robbins</td>
+                <td>60,00</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Head First HTML and CSS - Elisabeth Robson e Eric Freeman</td>
+                <td>160,00</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>HTML5 and CSS3: Visual QuickStart Guide - Elizabeth Castro e Bruce Hyslop</td>
+                <td>90,00</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Responsive Web Design with HTML5 and CSS - Ben Frain</td>
+                <td>130,00</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Web Design with HTML, CSS, JavaScript and jQuery Set - Jon Duckett</td>
+                <td>230,00</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Beginning HTML and CSS - Rob Larsen</td>
+                <td>100,00</td>
+            </tr>
+        </tbody>
+
+        <!-- Rodapé da tabela -->
+        <tfoot>
+            <!-- Total Geral calculado -->
+            <tr>
+                <th colspan="2" align="right">Total Geral:</th><th align="left">R$ 1.180,00</th></tr></tfoot>
+
+    </table>
+
+</body>
+</html>

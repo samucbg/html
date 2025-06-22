@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Primeiro Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        header, nav, main, footer {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .gallery img {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Estrutura Básica -->
+    <header>
+        <h1>Bem-vindo ao meu site!</h1>
+        <p>Esta é a minha primeira página HTML.</p>
+    </header>
+
+    <!-- Cabeçalhos -->
+    <section>
+        <h2>Minha Cidade Natal</h2>
+        <p>Poços de Caldas</p>
+        <h3>História</h3>
+        <p>É uma cidade brasileira construida dentro da caldeira de um supervulçao extinto</p>
+        <h4>Cultura</h4>
+        <p>A influência japonesa é bem presente na cidade e são comuns feiras de artesanato nos finais de semana.</p>
+        <h5>Pontos Turísticos</h5>
+        <p>Dentre os pontos turísticos podemos destacar o Cristo Redentor que é o mais alto(altitude) deo país.</p>
+    </section>
+
+    <!-- Parágrafos e Quebras -->
+    <section>
+        <h2>Biografia Pessoal</h2>
+        <p>Meu nome é Samuel.</p>
+        <p>Eu nasci em 1998.<br>Desde então, tenho vivido aqui.</p>
+    </section>
+
+    <!-- Formatação de Texto -->
+    <section>
+        <h2>Meu Hobby</h2>
+        <p><strong>Correr</strong> é um dos meus hobbies favoritos. Eu gosto de correr <em>todos os dias</em>.</p>
+    </section>
+
+    <!-- Links -->
+    <section>
+        <h2>Links Úteis para Estudantes</h2>
+        <ul>
+            <li><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a></li>
+            <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy</a></li>
+            <li><a href="https://www.codecademy.com" target="_blank">Codecademy</a></li>
+            <li><a href="https://www.coursera.org" target="_blank">Coursera</a></li>
+            <li><a href="https://www.edx.org" target="_blank">edX</a></li>
+        </ul>
+    </section>
+
+    <!-- Imagens -->
+    <section class="gallery">
+        <h2>Galeria Pessoal</h2>
+        <img src="imagem1.jpg" alt="Descrição da Imagem 1">
+        <img src="imagem2.jpg" alt="Descrição da Imagem 2">
+        <img src="imagem3.jpg" alt="Descrição da Imagem 3">
+    </section>
+
+    <!-- Listas -->
+    <section>
+        <h2>Lista de Compras</h2>
+        <ul>
+            <li>Leite</li>
+            <li>Pão</li>
+            <li>Ovos</li>
+        </ul>
+
+        <h2>Lista de Tarefas</h2>
+        <ol>
+            <li>Lavar a louça</li>
+            <li>Estudar para a prova</li>
+            <li>Fazer compras</li>
+        </ol>
+    </section>
+
+    <!-- Tabelas -->
+    <section>
+        <h2>Tabela de Notas Escolares</h2>
+        <table border="1">
+            <tr>
+                <th>Disciplina</th>
+                <th>Nota</th>
+            </tr>
+            <tr>
+                <td>Matemática</td>
+                <td>A+</td>
+            </tr>
+            <tr>
+                <td>Língua Portuguesa</td>
+                <td>B+</td>
+            </tr>
+            <tr>
+                <td>Ciencias</td>
+                <td>A-</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Divisões e Agrupamento -->
+    <section class="divisao">
+        <div style="background-color: lightgray;">
+            <h2>Sessão 1</h2>
+            <p>Aqui está o conteúdo da sessão 1.</p>
+        </div>
+
+        <div style="background-color: lightblue;">
+            <h2>Sessão 2</h2>
+            <p>Aqui está o conteúdo da sessão 2.</p>
+        </div>
+    </section>
+
+    <!-- Formulários Básicos -->
+    <section>
+        <h2>Formulário de Cadastro Simples</h2>
+        <form action="/submit" method="post">
+            Nome:<br><input type="text" name="nome"><br><br>
+            Email:<br><input type="email" name="email"><br><br>
+            Comentário:<br><textarea name="comentario"></textarea><br><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+
+    <!-- Elementos Semânticos -->
+    <nav><ul><li><a href="#home">Home</a></li></ul></nav>
+
+    <!-- Multimídia -->
+    <section id="multimedia">
+        <h2>Multimídia</h2>
+        <!-- Vídeo Tutorial -->
+        <video width="320" height="240" controls src="video.mp4">Seu navegador não suporta vídeo.</video>
+
+        <!-- Arquivo de Áudio -->
+        <audio controls src="audio.mp3">Seu navegador não suporta áudio.</audio>
+    </section>
+
+    <!-- Rodapé -->
+    <footer><p>&copy; 2024 Meu Blog Pessoal. Todos os direitos reservados.</p></footer>
+
+</body>
+</html>

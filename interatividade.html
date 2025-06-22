@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Conceitos Importantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML Conceitos Importantes</h1>
+
+    <!-- Manipulação do DOM -->
+    <section>
+        <h2>Manipulação do DOM</h2>
+        <button id="createButton">Criar Parágrafo</button>
+        <div id="dynamicContent"></div>
+    </section>
+
+    <!-- Eventos -->
+    <section>
+        <h2>Eventos</h2>
+        <button onclick="showMessage()">Clique aqui para uma mensagem!</button>
+    </section>
+
+    <!-- Variáveis e Tipos -->
+    <section>
+        <h2>Variáveis e Tipos</h2>
+        <input type="text" id="numberInput" placeholder="Digite um número">
+        <button onclick="convertAndDisplay()">Converter para Número</button>
+        <div id="result"></div>
+    </section>
+
+    <!-- Condicionais -->
+    <section>
+        <h2>Condicionais</h2>
+        <input type="number" id="ageInput" placeholder="Digite sua idade">
+        <button onclick="checkAge()">Verificar Idade</button>
+        <div id="ageResult"></div>
+    </section>
+
+    <!-- Funções -->
+    <section>
+        <h2>Funções</h2>
+        <input type="text" id="nameInput" placeholder="Digite seu nome">
+        <button onclick="greetUser()">Saudar Usuário</button>
+    </section>
+
+    <script>
+        // Manipulação do DOM
+        document.getElementById('createButton').onclick = function() {
+            const newParagraph = document.createElement('p');
+            newParagraph.innerHTML = 'Este é um novo parágrafo criado dinamicamente!';
+            document.getElementById('dynamicContent').appendChild(newParagraph);
+        };
+
+        // Função para mostrar uma mensagem
+        function showMessage() {
+            alert('Você clicou no botão!');
+        }
+
+        // Variáveis e Tipos
+        function convertAndDisplay() {
+            const inputValue = document.getElementById('numberInput').value;
+            const numberValue = parseFloat(inputValue);
+            document.getElementById('result').innerHTML = `Número convertido: ${numberValue}`;
+        }
+
+        // Condicionais
+        function checkAge() {
+            const age = parseInt(document.getElementById('ageInput').value);
+            let message;
+            if (age >= 18) {
+                message = 'Você é maior de idade.';
+            } else {
+                message = 'Você é menor de idade.';
+            }
+            document.getElementById('ageResult').innerHTML = message;
+        }
+
+        // Funções
+        function greetUser() {
+            const name = document.getElementById('nameInput').value;
+            alert(`Olá, ${name}! Bem-vindo ao nosso site.`);
+        }
+    </script>
+
+</body>
+</html>

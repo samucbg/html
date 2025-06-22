@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Metodologias Ágeis no Desenvolvimento de Softwares</title>
+  <style>
+    /* Reset básico */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+      color: #222;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    header {
+      background: #4f46e5;
+      color: white;
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgb(79 70 229 / 0.3);
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      font-size: 1.9rem;
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+    main {
+      max-width: 900px;
+      width: 100%;
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem 3rem;
+      box-shadow:
+        0 1px 3px rgb(0 0 0 / 0.07),
+        0 10px 15px rgb(0 0 0 / 0.1);
+      scroll-margin-top: 100px;
+    }
+    h1, h2 {
+      color: #4f46e5;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    h2 {
+      font-size: 1.6rem;
+      border-bottom: 3px solid #a5b4fc;
+      padding-bottom: 0.3rem;
+      margin-top: 2.5rem;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 1.4rem;
+      line-height: 1.5;
+    }
+    ul {
+      margin-left: 1.6rem;
+      margin-bottom: 1.8rem;
+      color: #444;
+      font-size: 1.1rem;
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      color: #333;
+    }
+    ul li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #4f46e5;
+      font-weight: 900;
+      font-size: 1.2rem;
+      line-height: 1;
+      user-select: none;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 1.5rem 0 2rem;
+      box-shadow:
+        0 8px 20px rgb(79 70 229 / 0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    img:hover, img:focus {
+      transform: scale(1.03);
+      outline: none;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+      user-select: none;
+    }
+    /* Tabs */
+    .tabs {
+      display: flex;
+      border-bottom: 3px solid #4f46e5;
+      border-radius: 12px 12px 0 0;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE 10+ */
+      margin-bottom: 1rem;
+    }
+    .tabs::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    .tab {
+      flex: 1 1 auto;
+      padding: 1rem 1.5rem;
+      background: #e0e7ff;
+      color: #4f46e5;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-align: center;
+      border-radius: 12px 12px 0 0;
+      margin-right: 0.4rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 8px rgb(79 70 229 / 0.1);
+      border-bottom: 3px solid transparent;
+    }
+    .tab:last-child {
+      margin-right: 0;
+    }
+    .tab:hover:not(.active),
+    .tab:focus-visible:not(.active) {
+      background: #c7d2fe;
+      outline: none;
+      box-shadow: 0 6px 14px rgb(79 70 229 / 0.2);
+    }
+    .tab.active {
+      background: white;
+      color: #1e40af;
+      font-weight: 700;
+      box-shadow: none;
+      border-bottom: 3px solid white;
+      cursor: default;
+    }
+    .tab-content {
+      display: none;
+      background: white;
+      border: 3px solid #4f46e5;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 2rem;
+      box-shadow:
+        0 8px 20px rgb(79 70 229 / 0.15);
+      color: #333;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Scrollbar styling for tabs container on smaller screens */
+    @media (max-width: 600px) {
+      main {
+        padding: 2rem 1.5rem;
+      }
+      .tabs {
+        border-radius: 12px;
+      }
+      .tab {
+        flex: 0 0 auto;
+        margin-right: 0.6rem;
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+      }
+    }
+  </style>
+  <!-- Fonte Inter do Google Fonts para visual moderno -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    Metodologias Ágeis no Desenvolvimento de Softwares
+  </header>
+  <main>
+    <section id="o-que-sao">
+      <h2>O que são Metodologias Ágeis?</h2>
+      <p>
+        Metodologias ágeis são práticas que tornam o desenvolvimento de software mais eficiente, flexível e colaborativo. Elas utilizam ciclos curtos de trabalho chamados <strong>sprints</strong>, promovendo entregas frequentes, feedback contínuo e adaptação rápida às mudanças.
+      </p>
+    </section>
+
+    <section id="principios">
+      <h2>Princípios Fundamentais</h2>
+      <ul>
+        <li><strong>Iteratividade e Incrementalidade:</strong> Divisão do trabalho em ciclos curtos com entregas frequentes.</li>
+        <li><strong>Transparência:</strong> Visibilidade total do progresso para equipe e clientes.</li>
+        <li><strong>Inspeção e Adaptação:</strong> Revisão constante para ajustes e melhorias.</li>
+      </ul>
+    </section>
+
+    <section id="papeis">
+      <h2>Papéis no Scrum</h2>
+      <ul>
+        <li><strong>Product Owner:</strong> Define prioridades e garante valor ao cliente.</li>
+        <li><strong>Scrum Master:</strong> Facilita o processo e remove obstáculos.</li>
+        <li><strong>Time de Desenvolvimento:</strong> Constrói o produto colaborativamente.</li>
+      </ul>
+    </section>
+
+    <section id="eventos">
+      <h2>Eventos Principais do Scrum</h2>
+      <ul>
+        <li><strong>Sprint Planning:</strong> Planejamento da sprint.</li>
+        <li><strong>Daily Scrum:</strong> Reunião diária rápida.</li>
+        <li><strong>Sprint Review:</strong> Apresentação do incremento.</li>
+        <li><strong>Sprint Retrospective:</strong> Reflexão para melhorias.</li>
+      </ul>
+    </section>
+
+    <section id="ferramentas-visuais">
+      <h2>Ferramentas Visuais</h2>
+      <div class="tabs" role="tablist" aria-label="Ferramentas Visuais Ágeis">
+        <button class="tab active" role="tab" tabindex="0" aria-selected="true" aria-controls="kanban" id="tab-kanban">Quadro Kanban</button>
+        <button class="tab" role="tab" tabindex="-1" aria-selected="false" aria-controls="burndown" id="tab-burndown">Gráfico Burndown</button>
+        <button class="tab" role="tab" tabindex="-1" aria-selected="false" aria-controls="scrum-cycle" id="tab-scrum-cycle">Ciclo Scrum</button>
+      </div>
+      <article id="kanban" class="tab-content active" role="tabpanel" aria-labelledby="tab-kanban" tabindex="0">
+        <p>O Quadro Kanban é uma ferramenta visual que organiza as tarefas em colunas como “A fazer”, “Em andamento” e “Concluído”.</p>
+        <img src="https://gopratico.com.br/wp-content/uploads/2022/11/quadro-kanban-exemplo-2-1080x608.jpg" alt="Exemplo de Quadro Kanban" loading="lazy" />
+      </article>
+      <article id="burndown" class="tab-content" role="tabpanel" aria-labelledby="tab-burndown" tabindex="0">
+        <p>O Gráfico Burndown mostra a quantidade de trabalho restante ao longo do tempo da sprint, ajudando a equipe a acompanhar o progresso.</p>
+        <img src="https://blog.aevo.com.br/wp-content/uploads/2021/08/grafico-burndown-aevo.jpg" alt="Exemplo de Gráfico Burndown" loading="lazy" />
+      </article>
+      <article id="scrum-cycle" class="tab-content" role="tabpanel" aria-labelledby="tab-scrum-cycle" tabindex="0">
+        <p>O Diagrama do Ciclo Scrum ilustra os papéis, eventos e fluxo do processo ágil.</p>
+        <img src="https://www.cedrotech.com/wp-content/uploads/2022/12/sprint.png" alt="Diagrama do Ciclo Scrum" loading="lazy" />
+      </article>
+    </section>
+
+    <section id="conclusao">
+      <h2>Conclusão</h2>
+      <p>
+        As metodologias ágeis, especialmente o Scrum, promovem colaboração intensa, entregas rápidas e adaptação contínua, tornando o desenvolvimento de software mais eficiente e alinhado às necessidades do cliente.
+      </p>
+    </section>
+  </main>
+  <footer>
+    <p>Baseado no vídeo "Metodologias ágeis no desenvolvimento de softwares - SCRUM | SENAI Play"</p>
+  </footer>
+
+  <script>
+    // Tabs acessíveis e modernas
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach((tab, idx) => {
+      tab.addEventListener('click', () => activateTab(idx));
+      tab.addEventListener('keydown', e => {
+        let newIndex;
+        switch(e.key) {
+          case 'ArrowRight':
+          case 'ArrowDown':
+            e.preventDefault();
+            newIndex = (idx + 1) % tabs.length;
+            tabs[newIndex].focus();
+            activateTab(newIndex);
+            break;
+          case 'ArrowLeft':
+          case 'ArrowUp':
+            e.preventDefault();
+            newIndex = (idx - 1 + tabs.length) % tabs.length;
+            tabs[newIndex].focus();
+            activateTab(newIndex);
+            break;
+          case 'Home':
+            e.preventDefault();
+            tabs[0].focus();
+            activateTab(0);
+            break;
+          case 'End':
+            e.preventDefault();
+            tabs[tabs.length - 1].focus();
+            activateTab(tabs.length - 1);
+            break;
+        }
+      });
+    });
+
+    function activateTab(index) {
+      tabs.forEach((tab, i) => {
+        const selected = i === index;
+        tab.classList.toggle('active', selected);
+        tab.setAttribute('aria-selected', selected);
+        tab.tabIndex = selected ? 0 : -1;
+        tabContents[i].classList.toggle('active', selected);
+      });
+    }
+  </script>
+</body>
+</html>

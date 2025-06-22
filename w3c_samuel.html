@@ -1,0 +1,146 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>W3C - World Wide Web Consortium</title> 
+        <style> 
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f4f4; } 
+        header { background: #0077cc; color: white; padding: 10px 0; text-align: center; } 
+        h1, h2, h3 { color: #333; } 
+        ul { list-style-type: none; padding: 0; } 
+        li { background: #fff; margin: 5px 0; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); } 
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; } th, td { border: 1px solid #ddd; padding: 8px; } 
+        th { background-color: #0077cc; color: white; }
+        .W3C{
+            text-align: center;
+        } 
+          .sidebar {
+            height: 100vh; /* Altura total da tela */
+            width: 100px; /* Largura da barra lateral */
+            background-color: #f4f4f4; /* Cor de fundo */
+            padding: 10px; /* Espaçamento interno */
+            position: fixed; /* Fixa a barra lateral */
+        }
+        .sidebar a {
+            display: block; /* Cada link ocupa uma linha */
+            color: #333; /* Cor do texto */
+            padding: 10px; /* Espaçamento interno dos links */
+            text-decoration: none; /* Remove o sublinhado */
+            margin-bottom: 10px; /* Espaçamento entre os links */
+            border-radius: 30px; /* Cantos arredondados */
+        }
+        .sidebar a:hover {
+            background-color: #ddd; /* Cor de fundo ao passar o mouse */
+            width:fit-content /*Tamanho da caixa exibida ao passar o mouse se ajusta automáticamente ao tamanho da palavra*/
+        }
+        .content {
+            margin-left: 200px; /* Margem para evitar sobreposição com a sidebar */
+            padding: 30px; /* Espaçamento interno do conteúdo */
+        }
+        </style> 
+    </head> 
+    <body> 
+        <header> 
+            <h1>O W3C - World Wide Web Consortium</h1>
+         </header>
+         <div class="sidebar">
+            <h2>Menu</h2>
+            <a href="#sobre">Sobre</a>
+            <a href="#papel">Papel do W3C</a>
+            <a href="#objetivos">Objetivos do W3C</a>
+            <a href="#acessibilidade">Acessibilidade</a>
+            <a href="#compatibilidade">Compatibilidade</a>
+            <a href="#padroes">Padrões</a>
+            <a href="#seguranca">Segurança</a>
+            <a href="#desenvolvimento">Desenvolvimento</a>
+            <a href="#beneficios">Benefícios</a>
+            <a href="#evolucao">Evolução</a>
+        </div> 
+         <section>         
+            
+            <div class="content">
+                <section id="sobre">
+                    <p>O W3C, ou World Wide Web Consortium, é uma organização internacional fundada em 1994 por Tim Berners-Lee, o inventor da Web.<br> 
+                    Seu principal objetivo é desenvolver padrões que garantam a acessibilidade, interoperabilidade e evolução da Web, promovendo uma experiência uniforme para todos os usuários, 
+                    independentemente do dispositivo ou software utilizado.</p>
+                    <div class="W3C">
+                        <img src="https://www.w3.org/2005/01/timelines/timeline-2500x998.png" alt="10 anos de W3C" width="1000">
+                    </div>
+                </section>
+                <section id="papel">
+                    <h2>Papel do W3C no Desenvolvimento da Web</h2>
+                    <p>O W3C desempenha um papel fundamental na criação de protocolos e diretrizes que moldam a estrutura da Web. Ao estabelecer padrões abertos, a organização permite que desenvolvedores e fabricantes de hardware criem produtos que funcionem de maneira consistente em diferentes plataformas e navegadores.</p>
+                </section>
+                <section id="objetivos">  
+                    <h2>Principais Objetivos dos Padrões W3C</h2>
+                    <ul>
+                        <li><strong>Interoperabilidade:</strong> Garantir que sites e aplicações funcionem corretamente em diversos navegadores e dispositivos.</li>
+                        <li><strong>Acessibilidade:</strong> Tornar a Web acessível a todos, incluindo pessoas com deficiências.</li>
+                        <li><strong>Manutenção e Evolução:</strong> Facilitar a manutenção de código bem estruturado e documentado.</li>
+                        <li><strong>SEO:</strong> Melhorar a indexação de sites por motores de busca.</li>
+                    </ul>
+                </section>
+                <section id="acessibilidade">  
+                    <h2>Contribuição para Acessibilidade</h2>
+                    <p>Os padrões W3C são essenciais para promover a acessibilidade na Web. As diretrizes estabelecidas, como as Web Content Accessibility Guidelines (WCAG), visam garantir que todos possam acessar informações online, independentemente de suas habilidades.</p>
+                </section>
+                <section id="compatibilidade">
+                    <h2>Importância da Compatibilidade entre Navegadores</h2>
+                    <p>A compatibilidade entre navegadores é vital para uma experiência de usuário consistente. O W3C promove essa compatibilidade ao desenvolver padrões que todos os navegadores devem seguir.</p>
+                </section>
+                <section id="padroes">   
+                    <h2>Principais Padrões Desenvolvidos pelo W3C</h2>
+                    <table>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Padrões W3C</th>
+                            <th>Descrição</th>
+                        </tr>
+                        <tr>
+                            <td>HTML</td>
+                            <td>HTML, XHTML</td>
+                            <td>Linguagens fundamentais para a estruturação de páginas web.</td>
+                        </tr>
+                        <tr>
+                            <td>CSS</td>
+                            <td>CSS, CSS Grid Layout</td>
+                            <td>Controla a apresentação visual das páginas web.</td>
+                        </tr>
+                        <tr>
+                            <td>Javascript</td>
+                            <td>DOM</td>
+                            <td>Modelo que permite a manipulação dinâmica do conteúdo da página.</td>
+                        </tr>
+                    </table>
+                </section>
+                <section id="seguranca">
+                    <h2>Padrões de Segurança</h2>
+                    <p>O W3C define e regula padrões de segurança através de diretrizes que abordam questões como criptografia e autenticação.</p>
+                </section>
+                <section id="desenvolvimento">
+                    <h2>Processo de Desenvolvimento de Padrões</h2>
+                    <ol>
+                        <li>Proposta inicial.</li>
+                        <li>Discussão em grupos de trabalho.</li>
+                        <li>Revisões baseadas em feedback.</li>
+                        <li>Publicação como recomendações após consenso.</li>
+                    </ol>
+                </section>
+                <section id="beneficios">  
+                    <h2>Benefícios dos Padrões W3C</h2>
+                    <ul>
+                        <li><strong>Consistência:</strong> Garantia de funcionamento adequado em diferentes plataformas.</li>
+                        <li><strong>Acessibilidade:</strong> Inclusão de todos os usuários.</li>
+                        <li><strong>Facilidade de Manutenção:</strong> Código bem estruturado facilita atualizações futuras.</li>
+                        <li><strong>Melhor Visibilidade:</strong> Sites otimizados são mais facilmente indexados por motores de busca.</li>
+                    </ul>
+                </section>
+                <section id="evolucao">                    
+                    <h2>Evolução Rápida da Tecnologia</h2>
+                    <p>O W3C lida com a rápida evolução tecnológica atualizando seus padrões regularmente para refletir novas realidades digitais.</p>
+                </section>
+            </div>
+        </section>
+    </body>
+</html>

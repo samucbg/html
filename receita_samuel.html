@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Receitas Favoritas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(8, 209, 216, 0.377);;
+            margin: 750px;
+            text-align: center;
+            margin-top: 0px;
+            display: flex;
+            transition: margin-left .5s; /* Transição suave para o conteúdo */
+        }
+        th, td{
+            border: 2px solid #555; /* Define a largura e estilo do contorno */
+            padding: 10px;
+            text-align: center;
+            margin: 750px;
+        }
+        /* Estilo da barra lateral */
+        .sidebar {
+            height: 100%;
+            width: 250px; /* Largura da barra lateral */
+            position: fixed; /* Fixa a barra lateral */
+            z-index: 1; /* Coloca a barra acima do conteúdo */
+            top: 0;
+            left: -250px; /* Inicialmente escondida */
+            background-color: #111; /* Cor de fundo */
+            overflow-x: hidden; /* Oculta o overflow horizontal */
+            transition: left 0.5s; /* Transição suave para abrir/fechar */
+        }
+        .sidebar a {
+            padding: 15px; /* Espaçamento interno */
+            text-decoration: none; /* Remove sublinhado */
+            font-size: 18px; /* Tamanho da fonte */
+            color: #818181; /* Cor do texto */
+            display: block; /* Exibe como bloco */
+        }
+        .sidebar a:hover {
+            color:crimson; /* Cor ao passar o mouse */
+        }
+        .closebtn {
+            position: absolute;
+            top: 10px; /* Distância do topo */
+            right: 15px; /* Distância da direita */
+            font-size: 24px; /* Tamanho do botão de fechar */
+            color: white; /* Cor do texto do botão de fechar */
+            background-color: transparent; /* Fundo transparente */
+            border: none; /* Sem borda */
+            cursor: pointer; /* Cursor de ponteiro */
+        }
+        .openbtn {
+            position: fixed;
+            top: 10px; /* Distância do topo ajustada para não cobrir o título */
+            left: 10px; /* Distância da esquerda */
+            font-size: 20px; /* Tamanho do botão */
+            cursor: pointer; /* Cursor de ponteiro */
+            background-color: #111; /* Cor do botão */
+            color: white; /* Cor do texto do botão */
+            border: none; /* Sem borda */
+            padding: 10px 15px; /* Espaçamento interno do botão */
+        }
+        .main {
+            transition: margin-left .5s; /* Transição suave para o conteúdo principal */
+            padding-top: 60px; /* Espaçamento superior para evitar sobreposição com o botão e título */
+            padding-left: 20px;
+        }
+        #sidebar_title{
+            text-align: center;
+        }
+        #inicio {
+            text-align: center;
+            color: cadetblue; /* Cor inicial */
+            transition: color 0.3s; /* Transição suave para a mudança de cor */
+        }
+        #inicio:hover {
+            color:crimson; /* Cor quando o mouse passa sobre o elemento */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Botão para abrir a sidebar -->
+<button class="openbtn" onclick="toggleSidebar()">☰</button>
+
+<!-- Barra Lateral -->
+<div id="mySidebar" class="sidebar">
+    <button class="closebtn" onclick="toggleSidebar()">×</button> <!-- Botão para fechar -->
+    <h2 id="sidebar_title" style="color:white;">Receitas</h2>
+    <a id="inicio" href="#main"><strong>Início</strong></a>
+    <a href="#receita1">Ceviche</a>
+    <a href="#receita2">Pasta ao Pesto</a>
+    <a href="#receita3">Ratatouile</a>
+    <a href="#receita4">Salada Caesar</a>
+    <a href="#receita5">Frango Xadrez</a>
+    <a href="#receita6">Strogonoff de Carne</a>
+    <a href="#receita7">Paella</a>
+    <a href="#receita8">Costelinha ao Molho Barbecue</a>
+    <a href="#receita9">Risoto de Camarão</a>
+    <a href="#receita10">Mousse de Maracujá</a>
+</div>
+
+<!-- Conteúdo Principal -->
+<div id="main" class="main">
+    <h1 id="titulo">Meu Livro de Receitas</h1>
+
+    <!-- Receita 1 -->
+    <div class="receita" id="receita1">
+        <h2>Ceviche</h2>
+        <img src="https://lh3.googleusercontent.com/proxy/_xEoioUDdJjYw0EAZkQD-z17vId_ZrzKZIay38WCXXT9vFMWl5e1_tAJPzNG1SuyI10wqoI1s6pCHHQfgx6ZgcjFGbw9GOYc5kLT9ZGYUz6ZCgXNyi77fRXhyplCCnSndbz8iQ" alt="Ceviche" width="300">
+        
+        <h3>Ingredientes:</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Tilápia</td><td>4 filés cortados em cubos</td></tr>
+            <tr><td>Chá de pasta de alho</td><td>¼ colher</td></tr>
+            <tr><td>Cebola branca</td><td>½ unidade cortada em cubos</td></tr>
+            <tr><td>Tomate</td><td>2 unidades cortadas em cubos</td></tr>
+            <tr><td>Sopa de coentro</td><td>2½ colheres</td></tr>
+            <tr><td>Pimenta do Reino</td><td>A gosto</td></tr>
+            <tr><td>Sal</td><td>A gosto</td></tr>
+            <tr><td>Salsinha e cebolinha desidratada</td><td>A gosto</td></tr>
+            <tr><td>Sucos de Limão</td><td>3 unidades</td></tr>
+            <tr><td>Molho de Pimenta</td><td>3 gotas</td></tr>
+        </table>
+
+        <h3>Passos:</h3>
+        <ol class="passos">
+            <li>Deixe o peixe em cubos de molho em 3/4 do suco de limão durante 3 horas.</li>
+            <li>Escorra o líquido.</li>
+            <li>Misture o peixe com a pasta de alho, molho de pimenta, tomate, cebola, coentro, a salsinha, a cebolinha e o restante do suco de limão. </li>
+            <li>Tempere com sal e pimenta a gosto.</li>
+            <li>Este prato não vai ao fogo, a acidez do limão é que cozinha o peixe.</li>
+        </ol>
+
+        <p>Receita adaptada de:
+           <a href="https://www.tudogostoso.com.br/receita/54909-delicioso-ceviche-de-tilapia.html" target="_blank">Receita - Ceviche</a>.
+        </p>
+    </div>
+    
+    <!-- Receita 2 -->
+    <div class="receita" id="receita2">
+        <h2>Pasta ao Pesto</h2>
+        <img src="https://vancouverwithlove.com/wp-content/uploads/2023/08/pasta-al-pesto-24-1.jpg" alt="Pasta ao Pesto" width="300">
+        
+        <h3>Ingredientes(Molho Pesto):</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Alho</td><td>2 dentes/td></tr>
+            <tr><td>Parmesão Ralado</td><td>1 colher de sopa</td></tr>
+            <tr><td>Provolone Ralado</td><td>1 colher de sopa</td></tr>
+            <tr><td>Nozes</td><td>4 unidades</td></tr>
+            <tr><td>Azeite</td><td>½ xícara</td></tr>
+            <tr><td>Folhas de Manjericão</td><td>¼ xícara</td></tr>
+            <tr><td>Azeite</td><td>½ xícara</td></tr>
+        </table>
+
+        <h3>Ingredientes(Macarrão):</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Macarrão Spaghetti</td><td>300 gramas</td></tr>
+            <tr><td>Água</td><td>½ panela</td></tr>
+            <tr><td>Sal</td><td>A gosto</td></tr>
+        </table>
+
+        <h3>Passos(Molho pesto):</h3>
+        <ol class="passos">
+            <li>Em um recipiente adicione o alho, o queijo provolone ralado, as nozes, as folhas de manjericão e triture enquanto adiciona aos poucos o azeite.</li>
+            <li>Reserve.</li>
+        </ol>
+
+        <h3>Passos(Macarrão):</h3>
+        <ol class="passos">
+            <li>Em uma panela, deixe a água ferver e adicione o sal.</li>
+            <li>Junte o macarrão e cozinhe a massa conforme indicado na embalagem.</li>
+            <li>Escorra o espaguete e em uma panela junte o macarrão e o molho pesto.</li>
+            <li>Misture bem e finalize com mais molho e nozes picadas por cima.</li>
+        </ol>
+
+        <p>Receita adaptada de:
+           <a href="https://receitas.globo.com/tipos-de-prato/macarrao/espaguete-ao-pesto-4d239244406b3624b1004735.ghtml" target="_blank">Receita - Pasta ao Pesto</a>.
+        </p>
+    </div>
+
+    <!-- Receita 3 -->
+    <div class="receita" id="receita3">
+        <h2>Ratatouille</h2>
+        <img src="https://veganoporquesim.com.br/wp-content/uploads/2022/07/Ratatouille-Tradicional.webp" alt="Ratatouille" width="300">
+        
+        <h3>Ingredientes:</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Abobrinha</td><td>2 unidades</td></tr>
+            <tr><td>Berinjela</td><td>2 unidades</td></tr>
+            <tr><td>Cebola</td><td>2 unidades</td></tr>
+            <tr><td>Pimentão Vermelho</td><td>1 unidade</td></tr>
+            <tr><td>Pimentão Verde</td><td>1 unidade</td></tr>
+            <tr><td>Pimentão Amarelo</td><td>1 unidade</td></tr>
+            <tr><td>Tomate</td><td>3 unidades</td></tr>
+            <tr><td>Azeite</td><td>A gosto</td></tr>
+            <tr><td>Alecrim</td><td>A gosto</td></tr>
+            <tr><td>Alho</td><td>A gosto</td></tr>
+            <tr><td>Louro</td><td>A gosto</td></tr>
+            <tr><td>Manjericão</td><td>A gosto</td></tr>
+            <tr><td>Molho de tomate</td><td>Cobrir o fundo da forma</td></tr>
+            <tr><td>Sal</td><td>A gosto</td></tr>
+        </table>
+
+        <h3>Passos:</h3>
+        <ol class="passos">
+            <li>Corte os vegetais em rodelas finas sem as sementes.</li>
+            <li>Cubra o fundo de uma forma com o molho de tomate.</li>
+            <li>Monte tudo intercalando com os vegetais.</li>
+            <li>Amasse o alho e espalhe por cima acrescentando o sal e o alecrim a gosto.</li>
+            <li>Regue com um pouco de azeite e cubra com papel-manteiga ou alumínio.</li>
+            <li>Leve ao forno por 40 minutos a uma temperatura de 180° C a 200° C.</li>
+        </ol>
+
+        <p>Receita adaptada de:
+           <a href="https://www.tudogostoso.com.br/receita/135302-ratatouille.html" target="_blank">Receita - Ratatouille</a>.
+        </p>
+    </div>
+
+    <!-- Receita 4 -->
+    <div class="receita" id="receita4">
+        <h2>Salada Caesar</h2>
+        <img src="https://img.cybercook.com.br/receitas/441/salada-caesar-2.jpeg" alt="Salada Caesar" width="300">
+        
+        <h3>Ingredientes(Salada):</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Alface americana</td><td>1 unidade picada</td></tr>
+            <tr><td>Peito de Frango s/osso</td><td>300 g em tiras</td></tr>
+            <tr><td>Parmesão ralado</td><td>1 xícara</td></tr>
+            <tr><td>Croutons</td><td>2 xíxaras</td></tr>
+        </table>
+
+        <h3>Ingredientes(Molho):</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Óleo</td><td>½ xícara</td></tr>
+            <tr><td>Azeite</td><td>½ xícara</td></tr>
+            <tr><td>Gema</td><td>1 unidade</td></tr>
+            <tr><td>Anchovas</td><td>5 filés</td></tr>
+            <tr><td>Mostarda</td><td>1 colher de sopa</td></tr>
+            <tr><td>Alho</td><td>2 dentes amassados</td></tr>
+            <tr><td>Maionese</td><td>2 colheres de sopa</td></tr>
+            <tr><td>Suco de Limão</td><td>1 colher de sopa</td></tr>
+        </table>
+
+        <h3>Passos(Montagem):</h3>
+        <ol class="passos">
+            <li>Para fazer o molho coloque todos os ingredientes no liquidificador, bata bem pouco, somente para unir os ingredientes, se bater demais irá virar uma maionese.</li>
+            <li>Arrume a alface em uma saladeira funda, coloque o frango em tiras (opcional) e regue com o molho, polvilhe o parmesão.</li>
+            <li>Cubra com os croutons somente na hora de servir para não amolecer.</li>
+            <li>Sirva com o molho como acompanhamento.</li>
+        </ol>
+
+        <p>Receita adaptada de:
+           <a href="https://www.tudogostoso.com.br/receita/7329-salada-caesar.html" target="_blank">Receita - Salada Caesar</a>.
+        </p>
+    </div>
+
+    <!-- Receita 5 -->
+    <div class="receita" id="receita5">
+        <h2>Frango Xadrez</h2>
+        <img src="https://www.grupopq.com.br/wp-content/uploads/2023/03/SITE-2-1024x1024.png" alt="Frango Xadrez" width="300">
+        
+        <h3>Ingredientes:</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Água</td><td>½ xícara</td></tr>
+            <tr><td>Alho</td><td>2 dentes amassados</td></tr>
+            <tr><td>Amendoim(torrado)</td><td>2 colheres de sopa</td></tr>
+            <tr><td>Azeite</td><td>2 colheres de sopa</td></tr>
+            <tr><td>Cebola</td><td>2 unidades cortadas em cubos</td></tr>
+            <tr><td>Cogumelos(Cortados ao meio)</td><td>1 xícara</td></tr>
+            <tr><td>File de Frango</td><td>500g cortados em cubos</td></tr>
+            <tr><td>Maisena</td><td>1 colher de sopa</td></tr>
+            <tr><td>Pimentão Amarelo</td><td>1 unidade</td></tr>
+            <tr><td>Pimentão Verde</td><td>1 unidade</td></tr>
+            <tr><td>Pimentão Vermelho</td><td>1 unidades</td></tr>
+            <tr><td>Sal</td><td>A gosto</td></tr>
+            <tr><td>Shoyu</td><td>¼ xícara</td></tr>
+        </table>
+
+        <h3>Passos:</h3>
+        <ol class="passos">
+            <li>Em uma frigideira ou panela grande, misture a metade do azeite de oliva, a cebola, o alho e deixe fritar.</li>
+            <li>Retire e coloque em um prato.</li>
+            <li>Na mesma panela, coloque o sal, o restante do azeite e frite os pimentões e os cogumelos por 5 minutos.</li>
+            <li>Retire e despeje em outro prato.</li>
+            <li>Ainda na mesma panela, coloque o frango e frite até dourar.</li>
+            <li>Coloque todos os ingredientes novamente na frigideira, misture bem com uma colher de pau e refogue por mais 2 minutos.</li>
+            <li>Em uma xícara, misture o molho shoyu, a maisena e a água.</li>
+            <li>Mexa bem e junte a mistura de frango.</li>
+            <li>Cozinhe, mexendo constantemente, até formar um molho espesso.</li>
+            <li>Coloque em uma travessa, polvilhe com amendoim e sirva quente.</li>
+        </ol>
+
+        <p>Receita adaptada de:
+           <a href="https://www.tudogostoso.com.br/receita/897-frango-xadrez.html" target="_blank">Receita - Frango Xadrez</a>.
+        </p>
+    </div>
+
+    <!-- Receita 6 -->
+    <div class="receita" id="receita6">
+        <h2>Strogonoff de Carne</h2>
+        <img src="https://static.itdg.com.br/images/1200-630/3aa47f88212230f299354f101934f0ef/87554-original.jpg" alt="Strogonoff de Carne" width="300">
+        
+        <h3>Ingredientes:</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Acém em Tiras</td><td>500g</td></tr>
+            <tr><td>Creme de Leite</td><td>1 caixa</td></tr>
+            <tr><td>Cebola</td><td>½ unidade</td></tr>
+            <tr><td>Alho</td><td>1 dente</td></tr>
+            <tr><td>Sal</td><td>A gosto</td></tr>
+            <tr><td>Ketchup</td><td>A gosto</td></tr>
+            <tr><td>Mostarda</td><td>A gosto</td></tr>
+        </table>
+
+        <h3>Passos:</h3>
+        <ol class="passos">
+            <li>Preaqueça o forno a 180°C.</li>
+            <li>Em uma tigela, misture todos os ingredientes secos.</li>
+            <li>Adicione os ovos e o leite, misturando bem.</li>
+            <li>Despeje a manteiga derretida e misture até ficar homogêneo.</li>
+            <li>Asse por aproximadamente 30 minutos.</li>
+        </ol>
+
+        <p>Receita adaptada de:
+           <a href="https://www.tudogostoso.com.br/receita/1408-strogonoff-de-carne.htmle" target="_blank">Receita - Strogonoff de Carne</a>.
+        </p>
+    </div>
+
+    <!-- Receita 7 -->
+    <div class="receita" id="receita7">
+        <h2>Paella</h2>
+        <img src="https://swiftbr.vteximg.com.br/arquivos/ids/198649-768-768/615688-KIT-PAELLA--LILA-CAMAROES-E-MEXILHAO--SWIFT-400G-IMGP8228--2-.jpg?v=638506211506000000" alt="Paella" width="300">
+        
+        <h3>Ingredientes:</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Açafrão</td><td>50 g</td></tr>
+            <tr><td>Alho</td><td>200 g</td></tr>
+            <tr><td>Arroz(parborizado)</td><td>2 kg</td></tr>
+            <tr><td>Cabeça e epsinha de peixe</td><td>500 g</td></tr>
+            <tr><td>Camarão c/casca</td><td>2 kg</td></tr>
+            <tr><td>Camarão s/casca</td><td>1 kg</td></tr>
+            <tr><td>Cebola</td><td>1 kg</td></tr>
+            <tr><td>Curry</td><td>1 colher de chá</td></tr>
+            <tr><td>Ervilha(congelada)</td><td>800 g</td></tr>
+            <tr><td>Garoupa</td><td>500 g</td></tr>
+            <tr><td>Lula</td><td>500 g</td></tr>
+            <tr><td>Marisco da pedra</td><td>500 g</td></tr>
+            <tr><td>Páprica</td><td>1 colher de chá</td></tr>
+            <tr><td>Pimenta dedo-de-moça</td><td>1 unidade</td></tr>
+            <tr><td>Pimentão Amarelo s/pele e s/semente</td><td>200 g</td></tr>
+            <tr><td>Pimentão Verde s/pele e s/semente</td><td>200 g</td></tr>
+            <tr><td>Pimentão Vermelho s/pele e s/semente</td><td>200 g</td></tr>
+            <tr><td>Polvo</td><td>500 g</td></tr>
+            <tr><td>Sal</td><td>A gosto</td></tr>
+            <tr><td>Siri(Carne)</td><td>500 g</td></tr>
+            <tr><td>Tomate s/pele e s/semente</td><td>1 kg</td></tr>
+        </table>
+
+        <h3>Passos(Caldo de Peixe):</h3>
+        <ol class="passos">
+            <li>Em uma panela adicione 3 litros de água, 1 colher de açafrão e cabeça e espinha de peixe.</li>
+            <li>Deixe ferver por 15 minutos.</li>
+            <li>Agora é só coar e seu molho está pronto.</li>
+        </ol>
+
+        <h3>Passos:</h3>
+        <ol class="passos">
+            <li>Em uma paelleira doure a cebola de cabeça em azeite de oliva, em seguida o alho em lâminas.</li>
+            <li>Em seguida, junte a garoupa em cubos, a carne de siri, o polvo em pedaços, a lula em anéis, o marisco, tomate e pimentão .</li>
+            <li>Cozinhar por 20 minutos.</li>
+            <li>Acrescente o arroz, camarão, ervilhas, açafrão, curry, páprica e o caldo do peixe conforme necessário para o cozimento do arroz. tampe.</li>
+            <li>Após o arroz ficar no ponto, regue a paella com azeite de oliva extra-virgem e decore com os camarões com casca cozidos e rodelas de pimentões nas três cores.</li>
+        </ol>
+
+        <p>Receita adaptada de:
+           <a href="https://www.tudogostoso.com.br/receita/14447-paella-a-marineira.html" target="_blank">Receita - Paella</a>.
+        </p>
+    </div>
+
+    <!-- Receita 8 -->
+    <div class="receita" id="receita8">
+        <h2>Costelinha ao Molho Barbecue</h2>
+        <img src="https://www.emporio481.com.br/wp-content/uploads/2020/11/como-fazer-costelinha-molho-barbecue.jpg" alt="Costelinha ao Molho Barbecue" width="300">
+        
+        <h3>Ingredientes:</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Alecrim</td><td>2 ramos</td></tr>
+            <tr><td>Alho</td><td>4 dentes</td></tr>
+            <tr><td>Azeite</td><td>1 colher de sopa</td></tr>
+            <tr><td>Costela de Porco(Inteira)</td><td>2 kg</td></tr>
+            <tr><td>Folhas de Louro</td><td>3 unidades</td></tr>
+            <tr><td>Molho Barbecue</td><td>8 colheres de sopa</td></tr>
+            <tr><td>Pimenta do reino</td><td>1 colher de sopa</td></tr>
+            <tr><td>Sal</td><td>2 colheres de sopa</td></tr>
+        </table>
+
+        <h3>Passos:</h3>
+        <ol class="passos">
+            <li>Amasse os 4 dentes de alho, sal, e espalhe por toda a carne, acrescente a pimenta-do-reino, o alecrim e as folhas de louro e o azeite.</li>
+            <li>Coloque a costelinha ja temperada dentro de um saco plástico fechado e leve à geladeira, deixe marinar por 12 horas.</li>
+            <li>Após esse tempo, retire a costelinha do saco plastico e a coloque em uma assadeira juntamente com o liquido produzido durante as 12 horas.</li>
+            <li>Tampe com papel alumineo e leve ao forno por 1 hora e meia à 180º.</li>
+            <li>Após 1 hora e meia retire o papel alumineo e pincele molho barbecue por toda a costelinha, continue pincelando o molho a cada 15 minutos.</li>
+            <li>Deixe a costelinha assar por mais 1 hora e meia à 180º.</li>
+        </ol>
+
+        <p>Receita adaptada de:
+           <a href="https://www.tudogostoso.com.br/receita/106386-costelinha-ao-molho-barbecue.html" target="_blank">Receita - Costelinha ao Molho Barbecue</a>.
+        </p>
+    </div>
+
+    <!-- Receita 9 -->
+    <div class="receita" id="receita9">
+        <h2>Risoto de Camarão</h2>
+        <img src="https://www.sabornamesa.com.br/media/k2/items/cache/b4787a4a5d6711adf08fa27fc1cba139_XL.jpg" alt="Risoto de Camarão" width="300">
+        
+        <h3>Ingredientes:</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Alho</td><td>2 dentes</td></tr>
+            <tr><td>Arroz</td><td>3 xícara</td></tr>
+            <tr><td>Azeite</td><td>1 colher de sopa</td></tr>
+            <tr><td>Caldo de camarão</td><td>1 cubo</td></tr>
+            <tr><td>Camarão cinza</td><td>400 g</td></tr>
+            <tr><td>Cheiro-verde</td><td>1 unidade picado</td></tr>
+            <tr><td>Extrato de tomate</td><td>2 colheres de sopa</td></tr>
+            <tr><td>Limão</td><td>½ unidade</td></tr>
+            <tr><td>Pimentão Verde(em cubos)</td><td>½ xícara</td></tr>
+            <tr><td>Sal</td><td>A gosto</td></tr>
+            <tr><td>Tomate sem semente</td><td>1 unidade</td></tr>
+        </table>
+
+        <h3>Passos:</h3>
+        <ol class="passos">
+            <li>Tempere o camarão com limão e sal, reserve por 10 minutos.</li>
+            <li>Enquanto isso, faça o arroz, fritando-o muito bem.</li>
+            <li>Em seguida, coloque água em uma panela, o suficiente para cobrir o arroz (sobrando uns 2 centímetros a mais do que o arroz no fundo da panela).</li>
+            <li>Coloque pouco sal, pois o molho do camarão levará o cubo de caldo de camarão.</li>
+            <li>Cozinhe em fogo baixo até que toda água seque.</li>
+            <li>Retire do fogo e deixe a tampa da panela aberta (para o arroz não passar do ponto).</li>
+            <li>E uma frigideira grande, que caiba todo o camarão, doure o alho e coloque todo o camarão sem o suco do limão.</li>
+            <li>Junte o tomate, o pimentão, o cheiro-verde, o extrato de tomate e o cubo de caldo de camarão.</li>
+            <li>Adicione um pouco de água, para que tenha molho suficiente para encobrir o camarão na frigideira. Cozinhe em fogo baixo por 5 minutos.</li>
+            <li>Enquanto isso, retire o arroz e coloque-o em um recipiente de cerâmica ou vidro, solte-o bastante com o garfo.</li>
+            <li>Junte o molho do camarão e misture, usando em uma das mãos um garfo, e em outra mão uma colher.</li>
+            <li>Decore com camarões grelhados e coentro, sirva bem quente!</li>
+        </ol>
+
+        <p>Receita adaptada de:
+           <a href="https://www.tudogostoso.com.br/receita/15236-risoto-de-camarao.html" target="_blank">Receita - Risoto de Camarão</a>.
+        </p>
+    </div>
+
+    <!-- Receita 10 -->
+    <div class="receita" id="receita10">
+        <h2>Mousse de Maracujá</h2>
+        <img src="https://www.receiteria.com.br/wp-content/uploads/mousse-de-maracuja-com-chantilly-730x914.jpeg" alt="Mousse de Maracuja" width="300">
+        
+        <h3>Ingredientes:</h3>
+        <table class="tabela-conteudo">
+            <tr><th>Ingrediente</th><th>Quantidade</th></tr>
+            <tr><td>Creme de Leite</td><td>1 lata</td></tr>
+            <tr><td>Leite condensado</td><td>1 lata</td></tr>
+            <tr><td>Suco de maracuja</td><td>1 lata(usar a do leite condensado de referência)</td></tr>
+        </table>
+
+        <h3>Passos:</h3>
+        <ol class="passos">
+            <li>Em um liquidificador, bata o creme de leite, o leite condensado e o suco concentrado de maracujá.</li>
+            <li>Em uma tigela, despeje a mistura e leve à geladeira por, no mínimo, 4 horas.</li>
+        </ol>
+
+        <p>Receita adaptada de:
+           <a href="https://www.tudogostoso.com.br/receita/1599-mousse-de-maracuja.html" target="_blank">Receita - Mousse de Maracuja</a>.
+        </p>
+    </div>
+
+</div>
+
+<script>
+// Função para abrir/fechar a sidebar
+function toggleSidebar() {
+    var sidebar = document.getElementById("mySidebar");
+    var main = document.getElementById("main");
+    
+    // Verifica se a sidebar está visível ou não
+    if (sidebar.style.left === "-250px") {
+        sidebar.style.left = "0"; // Abre a sidebar
+        main.style.marginLeft = "250px"; // Move o conteúdo principal
+    } else {
+        sidebar.style.left = "-250px"; // Fecha a sidebar
+        main.style.marginLeft = "0"; // Restaura o conteúdo principal
+    }
+}
+</script>
+
+
+
+</body>
+</html>

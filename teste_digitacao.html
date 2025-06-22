@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Velocidade de Digitação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Define a fonte do corpo da página */
+            text-align: center; /* Centraliza o texto na página */
+            margin: 20px; /* Adiciona margem ao redor do corpo */
+        }
+        h1 {
+            color: #4CAF50; /* Define a cor do título */
+        }
+        #frase {
+            font-size: 18px; /* Tamanho da fonte da frase */
+            margin: 20px auto; /* Margens superior/inferior e centraliza horizontalmente */
+            padding: 10px; /* Espaçamento interno do elemento */
+            border: 1px solid #ddd; /* Borda cinza clara ao redor da frase */
+            max-width: 600px; /* Largura máxima da frase */
+            background: #f9f9f9; /* Cor de fundo da frase */
+        }
+        input[type="text"] {
+            width: 80%; /* Largura do campo de entrada */
+            padding: 10px; /* Espaçamento interno do campo de entrada */
+            font-size: 16px; /* Tamanho da fonte do campo de entrada */
+            margin-top: 20px; /* Margem superior do campo de entrada */
+            border: 1px solid #ddd; /* Borda cinza clara ao redor do campo de entrada */
+        }
+        button {
+            margin-top: 10px; /* Margem superior do botão */
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            font-size: 16px; /* Tamanho da fonte do botão */
+            background-color: #4CAF50; /* Cor de fundo do botão */
+            color: white; /* Cor do texto do botão */
+            border: none; /* Remove a borda padrão do botão */
+            cursor: pointer; /* Muda o cursor para uma mão ao passar sobre o botão */
+        }
+        button:hover {
+            background-color: #45a049; /* Cor de fundo ao passar o mouse sobre o botão */
+        }
+        #resultado {
+            font-size: 18px; /* Tamanho da fonte para o resultado */
+            margin-top: 20px; /* Margem superior para o resultado */
+            color: #333; /* Cor padrão do texto do resultado */
+        }
+        #resultado.success {
+            color: green; /* Cor verde para resultados de sucesso */
+        }
+        #resultado.fail {
+            color: red; /* Cor vermelha para resultados de falha */
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste de Velocidade de Digitação</h1>
+    <p id="frase">Clique em "Iniciar" para começar!</p> <!-- Frase inicial -->
+    <input type="text" id="entrada" placeholder="Digite aqui..." disabled> <!-- Campo de entrada desabilitado inicialmente -->
+    <br>
+    <button onclick="iniciar()">Iniciar</button> <!-- Botão que inicia o teste -->
+    <div id="resultado"></div> <!-- Div para mostrar o resultado -->
+
+    <script>
+        const frases = [
+            "A criatividade é a inteligência se divertindo.",
+            "Programar é como resolver um quebra-cabeça.",
+            "A prática leva à perfeição.",
+            "Nunca pare de aprender algo novo.",
+            "O futuro é construído com código."
+        ]; // Array com frases para o teste
+
+        let fraseAtual = ""; // Variável para armazenar a frase atual
+        let tempoInicio = null; // Variável para armazenar o tempo de início
+
+        function iniciar() {
+            // Seleciona uma frase aleatória da lista
+            fraseAtual = frases[Math.floor(Math.random() * frases.length)];
+            document.getElementById("frase").textContent = fraseAtual;
+
+            // Limpa o campo de entrada e habilita-o
+            const entrada = document.getElementById("entrada");
+            entrada.value = ""; // Limpa qualquer texto anterior
+            entrada.disabled = false; // Habilita o campo para digitação
+            entrada.focus(); // Coloca o foco no campo de entrada
+
+            // Limpa a área de resultados
+            document.getElementById("resultado").textContent = "";
+
+            // Armazena o tempo atual como tempo de início
+            tempoInicio = new Date().getTime();
+
+            // Adiciona um listener para verificar a entrada enquanto o usuário digita
+            entrada.addEventListener("input", verificar);
+        }
+
+        function verificar() {
+            const entrada = document.getElementById("entrada").value;
+
+            // Verifica se a entrada corresponde à frase atual
+            if (entrada === fraseAtual) {
+                const tempoFim = new Date().getTime(); // Tempo final
+                const tempoTotal = ((tempoFim - tempoInicio) / 1000).toFixed(2); // Calcula o tempo total em segundos
+
+                document.getElementById("resultado").innerHTML = `
+                    <span class="success">Parabéns! Você completou em ${tempoTotal} segundos.</span>
+                `; // Exibe mensagem de sucesso
+                document.getElementById("entrada").disabled = true; // Desativa o campo após completar
+            } else if (!fraseAtual.startsWith(entrada)) {
+                document.getElementById("resultado").innerHTML = `
+                    <span class="fail">Ops! O texto digitado está incorreto.</span>
+                `; // Exibe mensagem de erro se a digitação estiver incorreta
+            }
+        }
+    </script>
+</body>
+</html>
