@@ -1,0 +1,55 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color:salmon;
+}
+
+.container_form {
+    width: 350px;
+    margin: 50px auto;
+    padding: 30px;
+    background:violet;
+    border-radius: 0px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form_grupo {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block; /* Faz o label se comportar como um bloco */
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    display: inline-block; /* Faz o input se comportar como um bloco */
+    width: 100px; /* Define uma largura fixa para o input */
+    margin-bottom: 5px; /* Espaçamento entre os campos */
+}
+
+.form_grupo input,
+.form_grupo select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: black;
+    border: none;
+    border-radius: 4px;
+}
+
+.error-message {
+    color: red; /* Cor das mensagens de erro */
+    font-size: 12px; /* Tamanho da fonte das mensagens */
+}

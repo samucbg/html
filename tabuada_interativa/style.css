@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #1e1e2f, #2a2a3c);
+    color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    margin: auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+input[type="number"], input[type="button"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+input[type="number"] {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+input[type="button"] {
+    background-color: #ff4081; /* Cor vibrante */
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="button"]:hover {
+    background-color: #e91e63; /* Cor de hover */
+}
+
+#resultado {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.par {
+    color: #00e676; /* Verde neon para números pares */
+}
+
+.impar {
+    color: #ffab40; /* Laranja neon para números ímpares */
+}
+
+@media (max-width: 600px) {
+    form {
+        width: calc(100% - 40px);
+        padding: 15px;
+        margin-top: -10px; /* Ajuste para telas menores */
+    }
+}

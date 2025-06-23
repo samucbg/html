@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Validar E-mail</title>
+</head>
+<body>
+
+<form onsubmit="return validarEmail()">
+    <input type="email" id="email" placeholder="Digite seu e-mail" required />
+    <button type="submit">Validar E-mail</button>
+</form>
+
+<p id="mensagemEmail" style="color:red;"></p>
+
+<script>
+function validarEmail() {
+    const email = document.getElementById('email').value;
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!regex.test(email)) {
+        document.getElementById('mensagemEmail').innerText = 'E-mail inválido!';
+        return false;
+    }
+    
+    alert('E-mail válido!');
+    return true;
+}
+</script>
+
+</body>
+</html>

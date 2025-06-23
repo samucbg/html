@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ocultar e Exibir Texto</title>
+</head>
+<body>
+
+<p id="textoOculto">Este texto pode ser ocultado ou exibido.</p>
+
+<button onclick="toggleTexto()">Mostrar/Ocultar Texto</button>
+
+<script>
+function toggleTexto() {
+    const texto = document.getElementById('textoOculto');
+    
+    if (texto.style.display === "none") {
+        texto.style.display = "block";
+    } else {
+        texto.style.display = "none";
+    }
+}
+toggleTexto(); // Oculta o texto inicialmente
+</script>
+
+</body>
+</html>

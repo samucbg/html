@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Idade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #calculadora-idade {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            width: auto;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .container input {
+            margin-right: 10px;
+        }
+
+        .container button {
+            margin-top: 10px;
+        }
+
+        .resultado {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="calculadora-idade">
+    <h2>Calculadora de Idade</h2>
+    <div class="container">
+        <input type="date" id="dataNascimento" />
+        <button onclick="calcularIdade()">Calcular Idade</button>
+    </div>
+    <p class="resultado" id="resultadoIdade"></p>
+</div>
+
+<script>
+function calcularIdade() {
+    const dataNascimento = new Date(document.getElementById('dataNascimento').value);
+    const hoje = new Date();
+    
+    if (!dataNascimento.getTime()) {
+        alert("Por favor, insira uma data válida.");
+        return;
+    }
+
+    let idade = hoje.getFullYear() - dataNascimento.getFullYear();
+    const mes = hoje.getMonth() - dataNascimento.getMonth();
+
+    // Ajusta a idade se o aniversário ainda não ocorreu este ano
+    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
+        idade--;
+    }
+
+    document.getElementById('resultadoIdade').innerText = `Você tem ${idade} anos.`;
+}
+</script>
+
+</body>
+</html>

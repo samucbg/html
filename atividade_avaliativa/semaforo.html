@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Semáforo</title>
+    <style>
+        #semaforo {
+            width: 100px;
+            height: 250px;
+            background-color: #333;
+            border-radius: 10px;
+            position: relative;
+            margin: auto;
+        }
+        .luz {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #555;
+            margin: 10px auto;
+        }
+        .vermelho { background-color: red; }
+        .amarelo { background-color: yellow; }
+        .verde { background-color: green; }
+    </style>
+</head>
+<body>
+
+<h2>Semáforo</h2>
+<div id="semaforo">
+    <div class="luz" id="luzVermelha"></div>
+    <div class="luz" id="luzAmarela"></div>
+    <div class="luz" id="luzVerde"></div>
+</div>
+
+<script>
+let estado = 'vermelho';
+
+function mudarSemaforo() {
+    document.getElementById('luzVermelha').classList.remove('vermelho');
+    document.getElementById('luzAmarela').classList.remove('amarelo');
+    document.getElementById('luzVerde').classList.remove('verde');
+
+    if (estado === 'vermelho') {
+        document.getElementById('luzVerde').classList.add('verde');
+        estado = 'verde';
+    } else if (estado === 'verde') {
+        document.getElementById('luzAmarela').classList.add('amarelo');
+        estado = 'amarelo';
+    } else {
+        document.getElementById('luzVermelha').classList.add('vermelho');
+        estado = 'vermelho';
+    }
+}
+
+setInterval(mudarSemaforo, 3000); // Muda a luz a cada 3 segundos
+</script>
+
+</body>
+</html>

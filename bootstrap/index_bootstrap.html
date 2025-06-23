@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube - Página Inicial</title>
+    <!-- Incluindo o Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJCRWgI2HepSP5BzMK6UOr9UJd79z2zsCb5+QkF5ldqQwlm0dFcbDhdf6mG4" crossorigin="anonymous">
+    <style>
+        /* Estilo personalizado */
+        .video-card {
+            margin-bottom: 20px;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+        }
+
+        .video-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .video-channel {
+            font-size: 14px;
+            color: gray;
+        }
+
+        .video-description {
+            font-size: 14px;
+            color: gray;
+        }
+
+        .sidebar {
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Barra de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">YouTube</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Explorar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inscrições</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Biblioteca</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Barra lateral -->
+            <div class="col-md-2 sidebar">
+                <h5 class="px-3">O que há de novo</h5>
+                <ul class="list-group">
+                    <li class="list-group-item">Home</li>
+                    <li class="list-group-item">Trending</li>
+                    <li class="list-group-item">Subscriptions</li>
+                    <li class="list-group-item">Library</li>
+                    <li class="list-group-item">History</li>
+                </ul>
+            </div>
+
+            <!-- Conteúdo principal -->
+            <div class="col-md-10">
+                <div class="row">
+                    <!-- Cartões de vídeo -->
+                    <div class="col-md-4">
+                        <div class="card video-card">
+                            <img src="https://via.placeholder.com/320x180" class="card-img-top video-thumbnail" alt="Video Thumbnail">
+                            <div class="card-body">
+                                <h5 class="card-title video-title">Título do Vídeo</h5>
+                                <p class="card-text video-channel">Canal de Exemplo</p>
+                                <p class="card-text video-description">Descrição breve do vídeo que explica o conteúdo de forma resumida.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card video-card">
+                            <img src="https://via.placeholder.com/320x180" class="card-img-top video-thumbnail" alt="Video Thumbnail">
+                            <div class="card-body">
+                                <h5 class="card-title video-title">Outro Título de Vídeo</h5>
+                                <p class="card-text video-channel">Canal Exemplo 2</p>
+                                <p class="card-text video-description">Descrição do segundo vídeo do exemplo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card video-card">
+                            <img src="https://via.placeholder.com/320x180" class="card-img-top video-thumbnail" alt="Video Thumbnail">
+                            <div class="card-body">
+                                <h5 class="card-title video-title">Título do Vídeo 3</h5>
+                                <p class="card-text video-channel">Canal Exemplo 3</p>
+                                <p class="card-text video-description">Outra descrição do vídeo para demonstrar como fica o layout.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybB4c5b93F2ah9lFvLRIQgfkX7kJts9GzF3gG03r14uDgD2c6C" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqC1d5b3pn4Vhe9B+4C3GYNhAnmSA5o8/4y+F7b5zgnkK" crossorigin="anonymous"></script>
+</body>
+
+</html>

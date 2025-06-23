@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    display: flexbox;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer {
+    position: flex; /* Fixa o footer na parte inferior */
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Faz com que o footer ocupe toda a largura */
+    background-color: #4CAF50; /* Cor de fundo do footer */
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 10px 0; /* Espaçamento interno */
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.main {
+   padding: 0px;
+   text-align: center;
+}
+
+.form_grupo {
+   margin-bottom: 15px;
+}
+
+.form_grupo input,
+.form_grupo select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.mensagem {
+   margin-top: 20px;
+   padding: 10px;
+   border-radius: 5px;
+   display: none; /* Inicialmente oculto */
+}
+
+.sucesso {
+   border: 1px solid green;
+   color: green;
+}
+
+.erro {
+   border: 1px solid red;
+   color: red;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f4f4f4;
+}
+tr, td{
+    text-align: center;
+}
+tr, th{
+    text-align: center;
+}

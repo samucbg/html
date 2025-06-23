@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Estilos</title>
+    <style>
+        #texto{
+            font-size: 20px;
+            color: black
+        }
+        body{
+            text-align: center;
+            margin-top: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de Alteração de Estilo com JavaScript</h1>
+    <p id="texto">Texto que terá seu estilo alterado</p>
+    <button onclick="alterarEstilo()">Alterar Estilo</button> <!--Botão para alterar o estilo do texto-->
+
+    <script>
+        function alterarEstilo() {
+            const elemento = document.getElementById("texto");
+            elemento.style.color = "red"; //Altera a cor do texto p/ vermelho
+            elemento.style.fontWeight = "bold"; //Deixa o texto em negrito
+            elemento.style.fontSize = "24px"; //Aumenta o tamanho da fonte
+        }
+    </script>
+</body>
+</html>

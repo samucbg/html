@@ -1,0 +1,34 @@
+<!DOCTYPE html >
+<html lang= "pt-BR" >
+<head >
+<meta charset= "UTF-8" >
+<title>Validação de Senha </title >
+<style >
+#mensagemErro { color: red; }  
+#mensagemSucesso { color: green; }  
+ </style >
+ </head >
+<body >
+
+<input type= "password" id= "senha" placeholder= "Digite sua senha" />  
+<button onclick= "validarSenha()" >Validar Senha </button >
+
+<p id= "mensagemErro"></p>  
+<p id= "mensagemSucesso"></p>
+
+<script >
+function validarSenha() {  
+const senha= document.getElementById( 'senha').value;  
+
+if (senha.length >= 8 && /\d/.test(senha) && /[A-Z]/.test(senha) && /[!@#$%^&*]/.test(senha)) {    
+document.getElementById( 'mensagemSucesso').innerText= 'Senha válida!';    
+document.getElementById( 'mensagemErro').innerText= '';    
+} else {    
+document.getElementById( 'mensagemErro').innerText= 'A senha deve ter pelo menos 8 caracteres, incluir um número, uma letra maiúscula e um caractere especial.';    
+document.getElementById( 'mensagemSucesso').innerText= '';    
+}  
+}  
+ </script >
+
+ </body >
+ </html >

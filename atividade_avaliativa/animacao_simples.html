@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Animação Simples</title>
+    <style>
+        #quadrado {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Animação Simples</h2>
+
+<div id="quadrado"></div>
+<button onclick="moverQuadrado()">Mover Quadrado</button>
+
+<script>
+function moverQuadrado() {
+    let posicao = 0;
+    const quadrado = document.getElementById('quadrado');
+    
+    const intervalo = setInterval(() => {
+        if (posicao >= 300) {
+            clearInterval(intervalo);
+        } else {
+            posicao++;
+            quadrado.style.left = posicao + 'px';
+        }
+    }, 5);
+}
+</script>
+
+</body>
+</html>

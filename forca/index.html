@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Jogo da Forca</h1>
+    <canvas id="canvas" width="200" height="200"></canvas>
+    <div id="palavra"></div>
+    <input type="text" id="letra" maxlength="1" placeholder="Digite uma letra" />
+    <button onclick="adivinhar()">Adivinhar</button>
+
+    <div id="letras">
+        <p>Letras corretas: <span id="corretas"></span></p>
+        <p>Letras erradas: <span id="erradas"></span></p>
+        <p>Tentativas restantes: <span id="tentativas"></span></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesquisa em Tempo Real</title>
+</head>
+<body>
+
+<h2>Pesquisa em Tempo Real</h2>
+
+<input type="text" id="campoPesquisa" oninput="pesquisar()" placeholder="Digite para pesquisar..."/>
+<ul id="sugestoes"></ul>
+
+<script>
+// Lista de sugestões
+const itens = ['Maçã', 'Banana', 'Laranja', 'Manga', 'Uva', 'Abacaxi', 'Pera'];
+
+function pesquisar() {
+    const pesquisa = document.getElementById('campoPesquisa').value.toLowerCase();
+    
+    // Limpa a lista de sugestões
+    const sugestoes = document.getElementById('sugestoes');
+    sugestoes.innerHTML = '';
+
+    // Filtra e exibe as sugestões
+    itens.forEach(item => {
+        if (item.toLowerCase().includes(pesquisa)) {
+            const li = document.createElement('li');
+            li.textContent = item;
+            sugestoes.appendChild(li);
+        }
+    });
+}
+</script>
+
+</body>
+</html>

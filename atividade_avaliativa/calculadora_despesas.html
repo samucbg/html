@@ -1,0 +1,38 @@
+<!DOCTYPE html >
+<html lang= "pt-BR" >
+<head >
+<meta charset= "UTF-8" >
+<title>Simulador de Despesas </title >
+ </head >
+<body >
+
+<h2>Simulador de Despesas </h2 >
+
+<input type='number' id='despesa' placeholder='Valor da despesa' />
+<button onclick='adicionarDespesa()'>Adicionar Despesa </ button >
+
+<ul id='listaDespesas'></ul >
+<p>Total: R$<span id='total'>0.00</span></p >
+
+<script >
+let totalDespesas= 0;
+
+function adicionarDespesa() { 
+const despesaValor= parseFloat(document.getElementById( 'despesa').value); 
+if (!isNaN(despesaValor)) { 
+totalDespesas += despesaValor; 
+document.getElementById( 'total').innerText= totalDespesas.toFixed(2); 
+
+const li= document.createElement( 'li'); 
+li.textContent= `R$${despesaValor.toFixed(2)}`; 
+document.getElementById( 'listaDespesas').appendChild(li); 
+
+document.getElementById( 'despesa').value= ''; 
+} else { 
+alert( 'Por favor, insira um valor válido.' ); 
+} 
+} 
+ </script >
+
+ </body > 
+ </html >

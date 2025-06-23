@@ -1,0 +1,38 @@
+<!DOCTYPE html >
+<html lang= "pt-BR" >
+<head >
+<meta charset= "UTF-8" >
+<title>Calculadora de Juros Compostos </title >
+<style >
+.container{ max-width :400 px ; margin:auto ; padding :20 px ; border :1 px solid #ddd ; border-radius :5 px ; background-color :#f9f9f9 ; }
+.container input{ margin-bottom :10 px ; width :100% ;}
+ </style >
+ </head >
+<body >
+
+<div class= "container">
+<h2>Calculadora de Juros Compostos </h2 >
+<input type= "number" id= "capital" placeholder= "Capital Inicial" />
+<input type= "number" id= "taxa" placeholder= "Taxa de Juros (%)" />
+<input type= "number" id= "tempo" placeholder= "Tempo (anos)" />
+<button onclick= "calcularJuros()">Calcular Juros </ button >
+
+<p id= "resultadoJuros"></p >
+
+<script >
+function calcularJuros() {  
+const capital = parseFloat(document.getElementById( 'capital').value);  
+const taxa = parseFloat(document.getElementById( 'taxa').value) /100;  
+const tempo = parseFloat(document.getElementById( 'tempo').value);  
+
+const montante = capital * Math.pow((1 + taxa), tempo);  
+const juros = montante - capital;  
+
+document.getElementById( 'resultadoJuros').innerText= `Montante final: R$${montante.toFixed(2)} | Juros ganhos: R$${juros.toFixed(2)}`;  
+}  
+ </script >
+
+ </div >
+
+ </body >  
+ </html >

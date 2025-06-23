@@ -1,0 +1,28 @@
+body {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* Gradiente de fundo */
+    color: #ffffff; /* Cor do texto */
+    font-family: 'Arial', sans-serif; /* Fonte moderna */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura total da tela */
+    margin: 0;
+}
+
+.container {
+    text-align: center; /* Centraliza o texto */
+}
+
+.texto {
+    font-size: 16px; /* Tamanho inicial do texto */
+    transition: font-size 0.3s ease, transform 0.3s ease; /* Transição suave para tamanho e transformação */
+    padding: 20px;
+    border-radius: 10px; /* Bordas arredondadas */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+}
+
+.texto:hover {
+    font-size: 24px; /* Aumenta o tamanho do texto ao passar o mouse */
+    transform: scale(1.1); /* Leve aumento na escala do elemento */
+}

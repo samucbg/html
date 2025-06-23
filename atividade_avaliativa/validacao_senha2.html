@@ -1,0 +1,42 @@
+<!DOCTYPE html >
+<html lang='pt-BR'>  
+<head >  
+<meta charset='UTF-8'>  
+<title>Validação de Senha </title >  
+<style >  
+.container{ max-width :400 px ; margin:auto ; padding :20 px ; border :1 px solid #ddd ; border-radius :5 px ; background-color :#f9f9f9 ; }  
+.container input{ margin-bottom :10 px ; width :100% ; }  
+.mensagemErro{ color:red; }  
+.mensagemSucesso{ color:green; }  
+ </style >  
+ </head >  
+
+<body >  
+
+<div class='container'>  
+<h2>Validação de Senha </h2 >  
+<input type='password' id='senha' placeholder='Digite sua senha' />  
+<button onclick='validarSenha()'>Validar Senha </button >
+
+<p class='mensagemErro' id='mensagemErro'></p>  
+<p class='mensagemSucesso' id='mensagemSucesso'></p>
+
+<script >  
+function validarSenha() {   
+const senha = document.getElementById('senha').value;   
+
+if (senha.length >= 8 && /\d/.test(senha) && /[A-Z]/.test(senha) && /[!@#$%^&*]/.test(senha)) {    
+document.getElementById('mensagemSucesso').innerText = 'Senha válida!';    
+document.getElementById('mensagemErro').innerText = '';    
+} else {    
+document.getElementById('mensagemErro').innerText = 'A senha deve ter pelo menos 8 caracteres e incluir um número e uma letra maiúscula.';    
+document.getElementById('mensagemSucesso').innerText = '';    
+}   
+}   
+ </script >  
+
+ </div >  
+
+ </body >  
+
+ </html >

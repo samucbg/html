@@ -1,0 +1,25 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.centralizado {
+    text-align: center; /* Centraliza horizontalmente */
+    margin: 20px 0; /* Espaçamento superior e inferior */
+}
+
+.flex-container {
+    display: flex; /* Define o contêiner como flexível */
+}
+
+.coluna {
+    flex: 1; /* Cada coluna ocupa o mesmo espaço disponível */
+    padding: 20px; /* Espaçamento interno das colunas */
+}
+
+.imagem {
+    max-width: 100%; /* Responsividade da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+}

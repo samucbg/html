@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>Somar Dois Números </title> 
+ </head> 
+<body> 
+
+<input type='number' id='numero1' placeholder='Número 1'> 
+<input type='number' id='numero2' placeholder='Número 2'> 
+<button onclick='somar()'>Somar </ button > 
+
+<p id='resultado'></p> 
+
+<script> 
+function somar() { 
+const num1 = parseFloat(document.getElementById('numero1').value); 
+const num2 = parseFloat(document.getElementById('numero2').value); 
+const soma = num1 + num2; 
+document.getElementById('resultado').innerText = `Resultado: ${soma}`; 
+} 
+ </script> 
+
+ </body> 
+ </html>

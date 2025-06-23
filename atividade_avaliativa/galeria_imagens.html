@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeria de Imagens</title>
+    <style>
+        #imagemGrande {
+            width: 300px;
+            height: auto;
+            margin-top: 10px;
+        }
+        .miniatura {
+            width: 50px;
+            height: auto;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Galeria de Imagens</h2>
+
+<img id="imagemGrande" src="" alt="" />
+<div id="galeria">
+    <img class="miniatura" src="https://via.placeholder.com/50/FF0000/FFFFFF?text=1" onclick="mostrarImagem(this.src)" alt="" />
+    <img class="miniatura" src="https://via.placeholder.com/50/00FF00/FFFFFF?text=2" onclick="mostrarImagem(this.src)" alt="" />
+    <img class="miniatura" src="https://via.placeholder.com/50/0000FF/FFFFFF?text=3" onclick="mostrarImagem(this.src)" alt="" />
+</div>
+
+<script>
+function mostrarImagem(src) {
+    document.getElementById('imagemGrande').src = src;
+}
+</script>
+
+</body>
+</html>

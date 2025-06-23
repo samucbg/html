@@ -1,0 +1,50 @@
+<!DOCTYPE html >
+<html lang= "pt-BR" >
+<head >
+<meta charset= "UTF-8" >
+<title>Tabela Dinâmica </title >
+<style >
+table, th, td { border: 1px solid black; border-collapse: collapse; } th, td { padding: 10px; text-align: left; }  
+ </style >
+ </head >
+<body >
+
+<table >
+<thead >
+<tr >
+<th>Tarefa </th >
+<th>Ações </th >
+<tr >
+<thead >
+<tbody id= "tabelaTarefas" ></tbody >
+<tfoot >
+<tr >
+<td colspan= "2" ><input type= "text" id= "novaTarefa" placeholder= "Nova Tarefa" />  
+<button onclick= "adicionarTarefa()" >Adicionar Tarefa </button ></td >
+<tr >
+<tfoot >
+<table >
+
+<script >
+function adicionarTarefa() {  
+const tarefaInput = document.getElementById( 'novaTarefa');  
+const tarefaTexto = tarefaInput.value.trim();  
+
+if (tarefaTexto !== '') {    
+const novaLinha = document.createElement( 'tr');    
+novaLinha.innerHTML = `<td>${tarefaTexto}</td><td><button onclick= "removerTarefa(this)">Remover </ button ></td>`;    
+document.getElementById( 'tabelaTarefas').appendChild(novaLinha);    
+tarefaInput.value= '';    
+} else {    
+alert( 'Por favor, digite uma tarefa.' );    
+}  
+}  
+
+function removerTarefa(botao) {  
+const linhaTarefa= botao.parentNode.parentNode;  
+linhaTarefa.remove();  
+}  
+ </script >
+
+ </body >
+ </html >

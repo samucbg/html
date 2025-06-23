@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+
+<h2>Lista de Tarefas</h2>
+<input type="text" id="novaTarefa" placeholder="Nova Tarefa" />
+<button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+
+<ul id="listaTarefas"></ul>
+
+<script>
+function adicionarTarefa() {
+    const tarefaTexto = document.getElementById('novaTarefa').value.trim();
+    if (tarefaTexto) {
+        const li = document.createElement('li');
+        li.textContent = tarefaTexto;
+        const botaoRemover = document.createElement('button');
+        botaoRemover.textContent = 'Remover';
+        botaoRemover.onclick = () => li.remove();
+        li.appendChild(botaoRemover);
+        document.getElementById('listaTarefas').appendChild(li);
+        document.getElementById('novaTarefa').value = '';
+    } else {
+        alert('Por favor, digite uma tarefa.');
+    }
+}
+</script>
+
+</body>
+</html>

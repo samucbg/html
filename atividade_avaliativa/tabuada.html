@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head >
+<meta charset='UTF-8'>
+<title>Tabuada Interativa </title >
+ </head >
+<body >
+
+<h2>Tabuada Interativa </h2 >
+<input type='number' id='numero' placeholder='Digite um número' oninput='gerarTabuada()' />
+<ul id='tabuada'></ul >
+
+<script >
+function gerarTabuada() {
+const numero = parseInt(document.getElementById('numero').value);
+const listaTabuada = document.getElementById('tabuada');
+listaTabuada.innerHTML = '';
+
+if (!isNaN(numero)) {
+for (let i = 1; i <= 10; i++) {
+const li = document.createElement('li');
+li.textContent = `${numero} x ${i} = ${numero * i}`;
+listaTabuada.appendChild(li);
+}
+}
+}
+ </script >
+
+ </body >
+ </html >

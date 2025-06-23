@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif; /* Define a fonte da página */
+    text-align: center; /* Centraliza o texto */
+    margin: 20px; /* Adiciona margem ao redor do conteúdo */
+}
+h1 {
+    color: #4CAF50; /* Define a cor do cabeçalho */
+}
+#frase {
+    font-size: 18px; /* Define o tamanho da fonte da frase */
+    margin: 20px auto; /* Margem vertical e centraliza horizontalmente */
+    padding: 10px; /* Adiciona preenchimento interno ao elemento */
+    border: 1px solid #ddd; /* Adiciona uma borda cinza clara */
+    max-width: 600px; /* Define a largura máxima do elemento */
+    background: #f9f9f9; /* Define a cor de fundo da frase */
+}
+input[type="text"] {
+    width: 80%; /* Define a largura do campo de entrada */
+    padding: 10px; /* Adiciona preenchimento interno ao campo */
+    font-size: 16px; /* Define o tamanho da fonte no campo */
+    margin-top: 20px; /* Adiciona margem acima do campo */
+    border: 1px solid #ddd; /* Adiciona uma borda cinza clara ao campo */
+}
+button {
+    margin-top: 10px; /* Margem acima do botão */
+    padding: 10px 20px; /* Preenchimento interno do botão */
+    font-size: 16px; /* Tamanho da fonte no botão */
+    background-color: #4CAF50; /* Cor de fundo verde para o botão */
+    color: white; /* Cor do texto no botão */
+    border: none; /* Remove a borda padrão do botão */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+button:hover {
+    background-color: #45a049; /* Cor de fundo ao passar o mouse sobre o botão */
+}
+#resultado {
+    font-size: 18px; /* Tamanho da fonte para os resultados */
+    margin-top: 20px; /* Margem acima dos resultados */
+    color: #333; /* Cor padrão do texto dos resultados */
+}
+#resultado.success {
+    color: green; /* Cor verde para resultados de sucesso */
+}
+#resultado.fail {
+    color: red; /* Cor vermelha para resultados de falha */
+}

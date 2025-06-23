@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de DOM - Alterar Conteúdo</title>
+    <style>
+        body{
+            text-align: center;
+            margin-top: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">Exemplo de Alteração de Conteúdo com DOM</h1>
+    <p id="mensagem">Conteúdo inicial do paragráfo</p> <!--Parágrafo que será alterado-->
+    <button onclick="alterarConteudo()">Alterar Conteúdo</button> <!--Botão p/ alterar o parágrafo-->
+
+    <script>
+        //Função JS que altera o conteúdo do paragráfo
+        function alterarConteudo() {
+            //Selecionando o parágrafo pelo ID e alterado seu conteúdo
+            document.getElementById("mensagem").textContent = "O conteúdo foi alterado!";
+        }
+    </script>
+</body>
+</html>

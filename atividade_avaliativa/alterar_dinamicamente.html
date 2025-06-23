@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterar Estilos Dinamicamente</title>
+    <style>
+        #textoEstilo { font-size: 20px; }
+        .textoMaior { font-size: 30px; }
+        .textoMenor { font-size: 16px; }
+        .textoAzul { color: blue; }
+        .textoVermelho { color: red; }
+        #containerEstilos { margin-bottom: 20px; }
+        #containerEstilos button { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<h2>Alterar Estilos Dinamicamente</h2>
+<div id="containerEstilos">
+    <p id="textoEstilo">Este é um texto que pode ter seu estilo alterado.</p>
+    <button onclick="document.getElementById('textoEstilo').classList.toggle('textoMaior')">Aumentar Fonte</button>
+    <button onclick="document.getElementById('textoEstilo').classList.toggle('textoMenor')">Diminuir Fonte</button>
+    <button onclick="document.getElementById('textoEstilo').classList.toggle('textoAzul')">Texto Azul</button>
+    <button onclick="document.getElementById('textoEstilo').classList.toggle('textoVermelho')">Texto Vermelho</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html lang='pt-BR'> 
+<head > 
+<meta charset='UTF-8'> 
+<title>Cronômetro </title >  
+<style > #cronometro { font-size: 24px; } </style >  
+ </head >  
+<body >  
+
+<div id='cronometro'>0 segundos </div >  
+<button onclick='iniciarCronometro()'>Iniciar </ button >  
+<button onclick='pararCronometro()'>Parar </ button >  
+
+<script >  
+let segundos = 0;  
+let intervalo;  
+
+function iniciarCronometro() {  
+intervalo = setInterval(() => {  
+segundos++;  
+document.getElementById('cronometro').innerText = `${segundos} segundos`;  
+}, 1000);  
+}  
+
+function pararCronometro() {  
+clearInterval(intervalo);  
+}  
+ </script >  
+
+ </body >  
+ </html >

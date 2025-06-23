@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo da Velha</title>
+    <style>
+        #tabuleiro {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 5px;
+            margin: auto;
+        }
+        .casa {
+            width: 100px;
+            height: 100px;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Jogo da Velha</h2>
+<div id="tabuleiro">
+    <div class="casa" onclick="jogar(this)"></div>
+    <div class="casa" onclick="jogar(this)"></div>
+    <div class="casa" onclick="jogar(this)"></div>
+    <div class="casa" onclick="jogar(this)"></div>
+    <div class="casa" onclick="jogar(this)"></div>
+    <div class="casa" onclick="jogar(this)"></div>
+    <div class="casa" onclick="jogar(this)"></div>
+    <div class="casa" onclick="jogar(this)"></div>
+    <div class="casa" onclick="jogar(this)"></div>
+</div>
+
+<script>
+let jogador = 'X';
+
+function jogar(casa) {
+    if (casa.innerHTML === '') {
+        casa.innerHTML = jogador;
+
+        if (verificarVitoria(jogador)) {
+            setTimeout(() => alert(`${jogador} venceu!`), 10);
+            reiniciarJogo();
+        } else {
+            jogador = (jogador === 'X') ? 'O' : 'X'; // Troca de jogador
+        }
+    }
+}
+
+function verificarVitoria(jogador) {
+    const casas = document.querySelectorAll('.casa');
+    
+    const combinacoes = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
+        [0, 4, 8], [2, 4, 6]             // Diagonais
+    ];
+
+    return combinacoes.some(combinacao => 
+        combinacao.every(index => casas[index].innerHTML === jogador)
+    );
+}
+
+function reiniciarJogo() {
+    const casas = document.querySelectorAll('.casa');
+    casas.forEach(casa => casa.innerHTML = '');
+}
+</script>
+
+</body>
+</html>

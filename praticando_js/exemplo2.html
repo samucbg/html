@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaração de Variáveis</title>
+</head>
+<body>
+    <h1>Exemplo de Variáveis em JavaScript</h1>
+    <!--Valor das variáveis-->
+    <p id="info"></p>
+    <script>
+        //Declaração de variáveis
+        let nome = "João"; //let: variável que pode ser alterada
+        const idade = 30; //const: valor fixo, que não pode ser alterado
+        var cidade = "São Paulo"; //var: variável global, menos recomendada
+
+        //Escrever diretamento no HTML
+        document.write(`
+        Nome: ${nome} <br>
+        Idade: ${idade} <br>
+        Cidade: ${cidade} <br><br>
+        `);
+        //Alterando o valor da variável "nome" e "cidade"
+        nome="Carlos";
+        cidade="Rio de Janeiro";
+        
+        //Adicionando as alterações ao HTML
+        document.write(`
+        Nome alterado: ${nome}<br>
+        Cidade alterada: ${cidade}<br>
+        `)
+    </script>
+</body>
+</html>

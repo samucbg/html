@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Animação com JavaScript</title>
+    <style>
+        #quadrado {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Animação com JavaScript</h2>
+
+<div id="quadrado"></div>
+<button onclick="moverQuadrado()">Mover Quadrado</button>
+<button onclick="resetarQuadrado()">Resetar Posição</button>
+
+<script>
+let posicao = 0;
+
+function moverQuadrado() {
+    const quadrado = document.getElementById('quadrado');
+    
+    const intervalo = setInterval(() => {
+        if (posicao >= window.innerWidth - 50) { // Ajusta para não sair da tela
+            clearInterval(intervalo);
+        } else {
+            posicao++;
+            quadrado.style.left = posicao + 'px';
+        }
+    }, 5);
+}
+
+function resetarQuadrado() {
+   posicao = 0; // Reseta a posição
+   document.getElementById('quadrado').style.left = posicao + 'px';
+}
+</script>
+
+</body>
+</html>

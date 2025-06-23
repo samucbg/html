@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Campo Obrigatório</title>
+</head>
+<body>
+
+<form onsubmit="return validarFormulario()">
+    <input type="text" id="campoObrigatorio" placeholder="Campo obrigatório" required />
+    <button type="submit">Enviar</button>
+</form>
+
+<p id="mensagemErro" style="color:red;"></p>
+
+<script>
+function validarFormulario() {
+    const campo = document.getElementById('campoObrigatorio').value;
+    if (!campo) {
+        document.getElementById('mensagemErro').innerText = 'Este campo é obrigatório!';
+        return false;
+    }
+    return true;
+}
+</script>
+
+</body>
+</html>

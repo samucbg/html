@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Básico de JavaScript</title>
+    <style>
+        body{
+            text-align: center; /*Centraliza o conteudo do body horizontalmente*/
+            margin-top: 50%; /*Centraliza o conteudo do body verticalmente*/
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ai JavaScript!</h1>
+    <p id="txt">Este texto será alterado.</p>
+    <button onclick="altertexto()">Alterar Texto</button>
+
+    <script>
+        function altertexto() {
+            document.getElementById("txt").textContent = "O texto foi atualizado!";
+        }
+    </script>
+</body>
+</html>

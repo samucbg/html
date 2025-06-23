@@ -1,0 +1,37 @@
+<!DOCTYPE html >
+<html lang= "pt-BR" >
+<head >
+<meta charset= "UTF-8" >
+<title>Conversor de Temperatura </title >
+ </head >
+<body >
+
+<h2>Conversor de Temperatura </h2 >
+
+<input type='number' id='temperatura' placeholder='Temperatura' />
+<select id='escala'>
+<option value='C'>Celsius para Fahrenheit </option > 
+<option value='F'>Fahrenheit para Celsius </option > 
+ </select > 
+<button onclick='converterTemperatura()'>Converter </button >
+
+<p id='resultadoTemperatura'></p >
+
+<script >
+function converterTemperatura() { 
+const temperatura= parseFloat(document.getElementById( 'temperatura').value); 
+const escala= document.getElementById( 'escala').value; 
+let resultado;
+
+if (escala === 'C') { 
+resultado= (temperatura * 9/5) +32; 
+document.getElementById( 'resultadoTemperatura').innerText= `${temperatura}°C é igual a ${resultado.toFixed(2)}°F`; 
+} else { 
+resultado= (temperatura -32) *5/9; 
+document.getElementById( 'resultadoTemperatura').innerText= `${temperatura}°F é igual a ${resultado.toFixed(2)}°C`; 
+} 
+} 
+ </script >
+
+ </body > 
+ </html >

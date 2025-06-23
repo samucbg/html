@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeria de Imagens</title>
+    <style>
+        #galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .miniatura {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+            margin: 5px;
+        }
+        #imagemGrande {
+            width: 300px;
+            height: auto;
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+        }
+        #botaoFechar {
+            display: none; /* Inicialmente oculto */
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Galeria de Imagens</h2>
+
+<img id="imagemGrande" src="" alt="" />
+<button id="botaoFechar" onclick="fecharImagem()">Fechar</button> <!-- Botão de fechar -->
+<div id="galeria">
+    <img class="miniatura" src="https://via.placeholder.com/100/FF0000/FFFFFF?text=1" onclick="mostrarImagem(this.src)" alt="" />
+    <img class="miniatura" src="https://via.placeholder.com/100/00FF00/FFFFFF?text=2" onclick="mostrarImagem(this.src)" alt="" />
+    <img class="miniatura" src="https://via.placeholder.com/100/0000FF/FFFFFF?text=3" onclick="mostrarImagem(this.src)" alt="" />
+</div>
+
+<script>
+function mostrarImagem(src) {
+    document.getElementById('imagemGrande').src = src;
+    document.getElementById('imagemGrande').style.display = 'block'; // Exibe a imagem
+    document.getElementById('botaoFechar').style.display = 'inline'; // Exibe o botão de fechar
+}
+
+function fecharImagem() {
+    document.getElementById('imagemGrande').style.display = 'none'; // Oculta a imagem
+    document.getElementById('botaoFechar').style.display = 'none'; // Oculta o botão de fechar
+}
+</script>
+
+</body>
+</html>

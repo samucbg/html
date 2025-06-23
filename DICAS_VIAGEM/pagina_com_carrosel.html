@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Guia do Mochileiro</title>
+        <style>
+            #heading{text-align: center;} /* Centraliza horizontalmente */
+            #heading{color:salmon}
+            #intro{text-align: center;} /* Centraliza horizontalmente */
+            body{background-color:rgba(8, 209, 216, 0.377);}
+            #travel_tips{color:salmon}
+            #travel_tips{text-align: center;} /* Centraliza horizontalmente */
+            #atractions{color:salmon}
+            #atractions{text-align: center;} /* Centraliza horizontalmente */
+            #activities{color:salmon}
+            #activities{text-align: center;} /* Centraliza horizontalmente */
+            #food{color:salmon}
+            #food{text-align: center;} /* Centraliza horizontalmente */
+            #conclusion{text-align:center} /* Centraliza horizontalmente */
+            .carousel-container {
+                display: flex;               /* Usar flexbox */
+                justify-content: center;     /* Centraliza horizontalmente */
+                width: 100%;                 /* Ocupa toda a largura disponível */
+            }
+            
+            .carousel {
+                
+                position: relative;
+                width: 100%;
+                max-width: 600px; /* Largura máxima do carrossel */
+                overflow: hidden; /* Oculta imagens fora do contêiner */
+            }
+                
+                .slides {
+                    text-align: center;
+                    display: flex;
+                    transition: transform 2s ease-in-out; /* Transição suave */
+                }
+                .slide {
+                    text-align: center;
+                    min-width: 100%; /* Cada slide ocupa 100% da largura do carrossel */
+                }
+                .slide img {
+                    text-align: center;
+                    width: 100%;
+                    height: 100%; /* Mantém a proporção da imagem */
+                }
+                .navigation {
+                    text-align: center;
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                hr {
+            border: 0;
+            height: 2px;
+            background-color: #000; /* Cor preta */
+            width: 50%; /* Largura de 50% da página */
+            margin: 20px auto; /* Espaçamento acima e abaixo, centralizada */
+        }
+                
+            
+        
+        </style>
+    </head>
+    <body>
+        <h1 id="heading">Venha conhecer as Ilhas Phi Phi</h1>
+        
+            <div class="carousel-container">
+            <div class="carousel">
+                <div class="slides">
+                    <div class="slide active">
+                        <img src="https://www.khaosodenglish.com/wp-content/uploads/2019/04/%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%A7%E0%B8%A1%E0%B8%B2%E0%B8%AB%E0%B8%A2%E0%B8%B2.jpg" alt="Maya Bay">
+                    </div>
+                    <div class="slide">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjh3Wulvav0qP3VIXEPYSFpfLxUJ88KbnEiqqzUOp8_phr-9KRo0kLNTKgzjeDflGJod92uVjwYboZAykfnCYqCjthbZohIFIxj6HtfwmlNIEYhfltrM3BfaH-Fu8yNCzPnEGiDlPQm83Vb/s1600/DSC00741.JPG" alt="Viking Cave">
+                    </div>
+                    <div class="slide">
+                        <img src="https://media.istockphoto.com/id/1207420016/photo/macaque-monkeys-at-monkey-beach-in-phi-phi-islands-thailand.jpg?s=612x612&w=0&k=20&c=4UTn2zttp4qPt1Md3ato_ey52ijo5IPY5qZ9TVtxpPA=" alt="Monkey Bay">
+                    </div>
+                    <div class="slide">
+                        <img src="https://cdn-64f39531c1ac18524466f4f0.closte.com/wp-content/uploads/2023/09/mainslide-dining.jpg" alt="Monkey Bay">
+                    </div>
+                </div>
+            </div>
+            </div>
+            <script src="script.js"></script>
+            <p id="intro"><strong>As Ilhas Phi Phi são um dos destinos mais deslumbrantes da Tailândia, conhecidas por suas praias de areia branca, águas cristalinas e paisagens montanhosas.<br> 
+                Este guia oferece uma visão geral das principais atrações, atividades e dicas úteis para aproveitar ao máximo sua visita.</strong></p>
+                <hr>
+        <h2 id="travel_tips">Dicas de Viagem</h2>
+        <ul id="travel_tips_list">
+            <li><em><strong>Melhor Época para Visitar: </strong></em>A melhor época para visitar as Ilhas Phi Phi é entre novembro e abril, quando o clima é mais seco.</li>
+            <li><em><strong>Como Chegar: </strong></em>Acessível por barco a partir de Phuket ou Krabi. Verifique os horários e reserve com antecedência.</li>
+            <li><em><strong>Hospedagem: </strong></em>Variedade de opções, desde albergues econômicos até resorts luxuosos.</li>
+        </ul>
+        <hr>
+        <h2 id="atractions">Principais Atrações</h2>
+        <ul id="atraction_list">
+            <li><em><strong>Maya Bay: </strong></em>Famosa por seu cenário no filme "A Praia", é uma das praias mais icônicas do mundo.</li>
+            <li><em><strong>Viking Cave: </strong></em> Um local histórico com pinturas rupestres e uma vista incrível.</li>
+            <li><em><strong>Monkey Beach: </strong></em>Uma praia onde você pode interagir com macacos em seu habitat natural.</li>
+        </ul>
+        <hr>
+        <h2 id="activities">Atividades Recomendadas</h2>
+        <ul id="activities_list">
+            <li><em><strong>Snorkeling: </strong></em>Explore a rica vida marinha nas águas ao redor das ilhas.</li>
+            <li><em><strong>Passeios de Barco: </strong></em>Faça um tour pelas ilhas vizinhas, como Bamboo Island(Ilha Bambu) e Mosquito Island(Ilha Mosquito).</li>
+            <li><em><strong>Caminhadas: </strong></em>Roteiros que levam a mirantes com vistas panorâmicas deslumbrantes.</li>
+        </ul>
+        <hr>
+        <h2 id="food">Gastronomia Local</h2>
+        <ul id="plates">
+            <li><em><strong>Pratos Típicos: </strong></em>Experimente o Pad Thai, curry tailandês e frutos do mar frescos.</li>
+            <img id="pad_thai" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCFVtihUQfVh7QsLwEeg9sCVrAJ2Eyqcf5jw&s" alt="Pad Thai" width="350">
+            <li><em><strong>Restaurantes Recomendados: </strong></em></li>
+                <ul>
+                    <li><em><strong>The Beach House: </strong></em>Ótima comida com vista para o mar.</li>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxXarNb_5JqgZ92Ik00lIiGyIG_fQti8lowQ&s" alt="The Beach House - Phi Phi Island" width="350">
+                    <li><em><strong>Oasis Restaurant: </strong></em>Local com ótimas opções da culinaria local</li>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqPbLlaFDdrA7iJPYMcwpXIfA1yBhKqIkBgw&s" alt="Oasis Restaurant - Phi Phi Island" width="350">
+                </ul>
+        </ul>
+        <hr>
+        <p id="conclusion"><strong>As Ilhas Phi Phi oferecem uma experiência única, combinando beleza natural com cultura vibrante.<br>
+            Com este guia, você estará preparado para explorar tudo o que este destino incrível tem a oferecer.<br> 
+            Esse modelo pode ser adaptado conforme necessário e pode incluir imagens atraentes das ilhas, listas de verificação para os viajantes e links úteis para reservas e informações adicionais.</strong></p>
+        
+    </body>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Busca em Lista</title>
+</head>
+<body>
+
+<h2>Busca em Lista</h2>
+
+<input type="text" id="campoBusca" onkeyup="filtrarLista()" placeholder="Buscar..."/>
+<ul id="lista">
+    <li>Maçã</li>
+    <li>Banana</li>
+    <li>Laranja</li>
+    <li>Manga</li>
+    <li>Uva</li>
+</ul>
+
+<script>
+function filtrarLista() {
+    const filtro = document.getElementById('campoBusca').value.toLowerCase();
+    const itens = document.querySelectorAll('#lista li');
+
+    itens.forEach(item => {
+        const texto = item.textContent.toLowerCase();
+        item.style.display = texto.includes(filtro) ? '' : 'none';
+    });
+}
+</script>
+
+</body>
+</html>

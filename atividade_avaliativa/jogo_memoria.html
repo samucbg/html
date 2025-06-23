@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo da Memória</title>
+    <style>
+        .card {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;
+            background-color: white; /* Cor inicial das cartas */
+            cursor: pointer;
+            border: 1px solid #000; /* Borda para melhor visualização */
+        }
+        .hidden {
+            background-color: lightgray; /* Cor quando a carta está virada */
+        }
+        /* Cores para as cartas */
+        .cartaA { background-color: red; }
+        .cartaB { background-color: green; }
+        .cartaC { background-color: blue; }
+        .cartaD { background-color: yellow; }
+    </style>
+</head>
+<body>
+
+<h2>Jogo da Memória</h2>
+
+<div id="cartas"></div>
+
+<script>
+const cartas = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D'];
+let primeiraCarta, segundaCarta, bloqueio;
+
+function iniciarJogo() {
+    cartas.sort(() => Math.random() - 0.5);
+    const containerCartas = document.getElementById('cartas');
+
+    for (let i = 0; i < cartas.length; i++) {
+        const carta = document.createElement('div');
+        carta.classList.add('card');
+        carta.setAttribute('data-card', cartas[i]);
+        
+        // Adiciona a classe de cor correspondente, mas não a aplica inicialmente
+        carta.classList.add(`hidden`); // Inicialmente escondida
+        
+        carta.addEventListener('click', revelarCarta);
+        containerCartas.appendChild(carta);
+    }
+}
+
+function revelarCarta() {
+    if (bloqueio || !this.classList.contains('hidden')) return;
+
+    // Remove a classe que esconde a cor e adiciona a cor correspondente
+    this.classList.remove('hidden');
+    this.classList.add(`carta${this.getAttribute('data-card')}`);
+
+    if (!primeiraCarta) {
+        primeiraCarta = this;
+    } else {
+        segundaCarta = this;
+        bloqueio = true;
+
+        setTimeout(() => verificarParecia(), 1000);
+    }
+}
+
+function verificarParecia() {
+    if (primeiraCarta.dataset.card === segundaCarta.dataset.card) {
+        // Se as cartas forem iguais, mantenha-as visíveis
+        primeiraCarta.removeEventListener('click', revelarCarta);
+        segundaCarta.removeEventListener('click', revelarCarta);
+    } else {
+        // Se não forem iguais, vire as cartas de volta
+        primeiraCarta.classList.add('hidden');
+        primeiraCarta.classList.remove(`carta${primeiraCarta.dataset.card}`);
+        
+        segundaCarta.classList.add('hidden');
+        segundaCarta.classList.remove(`carta${segundaCarta.dataset.card}`);
+    }
+
+    primeiraCarta = null;
+    segundaCarta = null;
+    bloqueio = false;
+}
+
+iniciarJogo();
+</script>
+
+</body>
+</html>

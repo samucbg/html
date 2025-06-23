@@ -1,0 +1,37 @@
+<!DOCTYPE html >
+<html lang='pt-BR'> 
+<head > 
+<meta charset='UTF-8'> 
+<title>Tabuada Dinâmica </title > 
+<style >
+.container { max-width :400 px ; margin:auto ; padding :20 px ; border :1 px solid #ddd ; border-radius :5 px ; background-color :#f9f9f9 ; }  
+.resultados { margin-top :10 px ; } 
+ </style >
+ </head > 
+<body >
+
+<div class='container'> 
+<h2>Tabuada Dinâmica </h2 >
+<input type='number' id='numero' placeholder='Digite um número' oninput='gerarTabuada()' />
+<ul id='tabuada'></ul >
+
+<script >
+function gerarTabuada() { 
+const numero = parseInt(document.getElementById('numero').value); 
+const listaTabuada = document.getElementById('tabuada'); 
+listaTabuada.innerHTML = '';
+
+if (!isNaN(numero)) { 
+for (let i = 1; i <= 10; i++) { 
+const li = document.createElement('li'); 
+li.textContent = `${numero} x ${i} = ${numero * i}`; 
+listaTabuada.appendChild(li); 
+} 
+} 
+} 
+ </script >
+
+ </div >
+
+ </body > 
+ </html >

@@ -1,0 +1,65 @@
+<!DOCTYPE html >
+<html lang='pt-BR'>  
+<head >  
+<meta charset='UTF-8'>  
+<title>Lista de Tarefas Avançada </title >  
+<style >  
+.container{ max-width :400 px ; margin:auto ; padding :20 px ; border :1 px solid #ddd ; border-radius :5 px ; background-color :#f9f9f9 ; }  
+
+.container input{ margin-bottom :10 px ; width :100% ; }  
+
+.listaTarefas{ list-style-type:none; padding-left:0; }  
+
+.listaTarefas li{ display:flex; justify-content:space-between; align-items:center; margin-bottom:5 px; }  
+
+.listaTarefas button{ margin-left:10 px; }  
+
+.resultado{ font-size :20 px ; margin-top :10 px ; }  
+
+ </style >  
+
+ </head >  
+
+<body >
+
+<div class='container'> 
+
+<h2>Lista de Tarefas Avançada</h2> 
+
+<input type='text' id='novaTarefa' placeholder='Nova Tarefa' /> 
+
+<button onclick='adicionarTarefa()'>Adicionar Tarefa</button>
+
+<ul class='listaTarefas' id='listaTarefas'></ul>
+
+<script >
+
+function adicionarTarefa() {   
+const tarefaTexto = document.getElementById('novaTarefa').value.trim();   
+
+if (tarefaTexto !== '') {    
+const li = document.createElement('li');    
+li.textContent = tarefaTexto;
+
+const botaoRemover = document.createElement('button');    
+botaoRemover.textContent = 'Remover';    
+botaoRemover.onclick = () => li.remove();    
+
+li.appendChild(botaoRemover);    
+document.getElementById('listaTarefas').appendChild(li);    
+
+document.getElementById('novaTarefa').value = '';    
+} else {    
+alert("Por favor digite uma tarefa.");    
+}   
+}   
+
+</script >
+
+<p class='resultado' id='resultado'></p> 
+
+</div >
+
+</body >
+
+</html >
